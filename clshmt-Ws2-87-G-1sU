@@ -146,7 +146,7 @@ proxy-groups:
 proxy-providers:
   yebekheMix:
     type: http
-    url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/mix"
+    url: "https://yebekhe.link/api/toClash/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyebekhe%2FTelegramV2rayCollector%2Fmain%2Fsub%2Fbase64%2Fmix&type=meta&process=full"
     path: ./proxiez/ybkhmix.txt
     health-check:
       enable: true
