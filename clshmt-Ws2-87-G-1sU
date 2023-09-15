@@ -140,10 +140,8 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     strategy: consistent-hashing
-    use:
-      - yebekheMix
-      - yebekheDonated
-      - yebekheREALITY
+    proxies:
+      - ⚡️ Fastest
 
 proxy-providers:
   yebekheMix:
