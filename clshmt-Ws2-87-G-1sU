@@ -122,7 +122,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     use:
-      - yebekheMix
+      - ybkhRealityv2h
       - yebekheDonated
       - yebekheREALITY
 
@@ -131,7 +131,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     use:
-      - yebekheMix
+      - ybkhRealityv2h
       - yebekheDonated
       - yebekheREALITY
 
@@ -144,10 +144,10 @@ proxy-groups:
       - ⚡️ Fastest
 
 proxy-providers:
-  yebekheMix:
+  ybkhRealityv2h:
     type: http
-    url: "https://yebekhe.link/api/toClash/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyebekhe%2FTelegramV2rayCollector%2Fmain%2Fsub%2Fbase64%2Fmix&type=meta&process=full"
-    path: ./proxiez/ybkhmix.txt
+    url: "https://raw.githubusercontent.com/yebekhe/V2Hub/main/Split/Normal/reality"
+    path: ./proxiez/ybkhrltyv2h.txt
     health-check:
       enable: true
       interval: 432000
@@ -155,7 +155,7 @@ proxy-providers:
 
   yebekheDonated:
     type: http
-    url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/donated"
+    url: "https://yebekhe.link/api/toClash/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyebekhe%2FTelegramV2rayCollector%2Fmain%2Fsub%2Fbase64%2Fdonated&type=meta&process=full"
     path: ./proxiez/ybkhdonated.txt
     health-check:
       enable: true
