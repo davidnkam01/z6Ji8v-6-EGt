@@ -14,15 +14,15 @@ profile:
 sniffer:
   enable: true
   sniffing:
-  - http
-  - tls
+    - http
+    - tls
 tun:
   enable: true
   stack: system
   dns-hijack:
-  - 0.0.0.0:53
-  - any:53
-  - tcp://any:53
+    - 0.0.0.0:53
+    - any:53
+    - tcp://any:53
   auto-detect-interface: true
   auto-route: true
   strict-route: true
@@ -31,145 +31,151 @@ dns:
   ipv6: true
   prefer-h3: true
   default-nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
-  - 208.67.222.222
-  - 217.218.155.155
+    - 1.1.1.1
+    - 8.8.8.8
+    - 208.67.222.222
+    - 217.218.155.155
   enhanced-mode: fake-ip
   use-hosts: true
   nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
-  - 208.67.222.222
-  - 217.218.155.155
+    - 1.1.1.1
+    - 8.8.8.8
+    - 208.67.222.222
+    - 217.218.155.155
   fake-ip-filter:
-  - '*.lan'
-  - stun.*.*.*
-  - stun.*.*
-  - time.windows.com
-  - time.nist.gov
-  - time.apple.com
-  - time.asia.apple.com
-  - '*.openwrt.pool.ntp.org'
-  - pool.ntp.org
-  - ntp.ubuntu.com
-  - time1.apple.com
-  - time2.apple.com
-  - time3.apple.com
-  - time4.apple.com
-  - time5.apple.com
-  - time6.apple.com
-  - time7.apple.com
-  - time1.google.com
-  - time2.google.com
-  - time3.google.com
-  - time4.google.com
-  - api.joox.com
-  - joox.com
-  - '*.xiami.com'
-  - '*.msftconnecttest.com'
-  - '*.msftncsi.com'
-  - +.xboxlive.com
-  - '*.*.stun.playstation.net'
-  - xbox.*.*.microsoft.com
-  - '*.ipv6.microsoft.com'
-  - speedtest.cros.wr.pvp.net
+    - "*.lan"
+    - stun.*.*.*
+    - stun.*.*
+    - time.windows.com
+    - time.nist.gov
+    - time.apple.com
+    - time.asia.apple.com
+    - "*.openwrt.pool.ntp.org"
+    - pool.ntp.org
+    - ntp.ubuntu.com
+    - time1.apple.com
+    - time2.apple.com
+    - time3.apple.com
+    - time4.apple.com
+    - time5.apple.com
+    - time6.apple.com
+    - time7.apple.com
+    - time1.google.com
+    - time2.google.com
+    - time3.google.com
+    - time4.google.com
+    - api.joox.com
+    - joox.com
+    - "*.xiami.com"
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - +.xboxlive.com
+    - "*.*.stun.playstation.net"
+    - xbox.*.*.microsoft.com
+    - "*.ipv6.microsoft.com"
+    - speedtest.cros.wr.pvp.net
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+    - 1.0.0.1
+    - 8.8.4.4
   fallback-filter:
     geoip: true
     geoip-code: IR
     ipcidr:
-    - 0.0.0.0/8
-    - 10.0.0.0/8
-    - 100.64.0.0/10
-    - 127.0.0.0/8
-    - 169.254.0.0/16
-    - 172.16.0.0/12
-    - 192.0.0.0/24
-    - 192.0.2.0/24
-    - 192.88.99.0/24
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 198.51.100.0/24
-    - 203.0.113.0/24
-    - 224.0.0.0/3
-    - 240.0.0.0/4
-    - ::1/128
-    - 64:ff9b:1::/48
-    - fc00::/7
-    - fe80::/10
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/3
+      - 240.0.0.0/4
+      - ::1/128
+      - 64:ff9b:1::/48
+      - fc00::/7
+      - fe80::/10
     domain:
-    - +.google.com
-    - +.facebook.com
-    - +.youtube.com
-    - +.gvt1.com
-    - +.twitter.com
-    - +.bing.com
-proxies:
-- client-fingerprint: chrome
-  grpc-opts:
-    grpc-service-name: xyz
-  name: 🚀🇫🇮1️⃣ VPNChi (ali) [VLESS - grpc]
-  network: grpc
-  port: 8443
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  server: 65.109.184.111
-  servername: www.speedtest.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 9077be5a-755a-4b07-9c41-fb5f32fa5012
-- client-fingerprint: chrome
-  grpc-opts:
-    grpc-service-name: xyz
-  name: 🚀🇫🇮2️⃣ VPNChi (ali) [VLESS - grpc]
-  network: grpc
-  port: 2096
-  reality-opts:
-    public-key: Dl4GAnZMT8_vu3Le2faAxZIyOY5pR5i47sW5PaTQCTM
-    short-id: ''
-  server: 65.109.184.111
-  servername: androidcentral.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 9077be5a-755a-4b07-9c41-fb5f32fa5012
+      - +.google.com
+      - +.facebook.com
+      - +.youtube.com
+      - +.gvt1.com
+      - +.twitter.com
+      - +.bing.com
+
 proxy-groups:
-- name: Proxy
-  type: select
-  proxies:
-  - ⚡️ Fastest
-  - 📶 First Available
-  - ♻️ Load Balance
-  - 🚀🇫🇮1️⃣ VPNChi (ali) [VLESS - grpc]
-  - 🚀🇫🇮2️⃣ VPNChi (ali) [VLESS - grpc]
-- name: ⚡️ Fastest
-  type: url-test
-  tolerance: 150
-  url: https://cp.cloudflare.com/generate_204
-  interval: 300
-  proxies:
-  - 🚀🇫🇮1️⃣ VPNChi (ali) [VLESS - grpc]
-  - 🚀🇫🇮2️⃣ VPNChi (ali) [VLESS - grpc]
-- name: 📶 First Available
-  type: fallback
-  url: https://cp.cloudflare.com/generate_204
-  interval: 300
-  proxies:
-  - 🚀🇫🇮1️⃣ VPNChi (ali) [VLESS - grpc]
-  - 🚀🇫🇮2️⃣ VPNChi (ali) [VLESS - grpc]
-- name: ♻️ Load Balance
-  type: load-balance
-  url: https://cp.cloudflare.com/generate_204
-  interval: 300
-  strategy: consistent-hashing
-  proxies:
-  - 🚀🇫🇮1️⃣ VPNChi (ali) [VLESS - grpc]
-  - 🚀🇫🇮2️⃣ VPNChi (ali) [VLESS - grpc]
+  - name: Proxy
+    type: select
+    proxies:
+      - ⚡️ Fastest
+      - 📶 First Available
+      - ♻️ Load Balance
+      - yebekhe-mix
+      - yebekhe-donated
+      - yebekhe-reality
+
+  - name: ⚡️ Fastest
+    type: url-test
+    tolerance: 150
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    proxies:
+      - yebekhe-mix
+      - yebekhe-donated
+      - yebekhe-reality
+
+  - name: 📶 First Available
+    type: fallback
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    proxies:
+      - yebekhe-mix
+      - yebekhe-donated
+      - yebekhe-reality
+
+  - name: ♻️ Load Balance
+    type: load-balance
+    url: https://cp.cloudflare.com/generate_204
+    interval: 300
+    strategy: consistent-hashing
+    proxies:
+      - yebekhe-mix
+      - yebekhe-donated
+      - yebekhe-reality
+
+proxy-providers:
+    yebekhe-mix:
+    type: http
+    url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/mix"
+    path: ./proxy-pr/yebekhe/mix.txt
+    health-check:
+      enable: true
+      interval: 432000
+      url: https://cp.cloudflare.com/generate_204
+
+    yebekhe-donated:
+    type: http
+    url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/donated"
+    path: ./proxy-pr/yebekhe/donated.txt
+    health-check:
+      enable: true
+      interval: 432000
+      url: https://cp.cloudflare.com/generate_204
+
+    yebekhe-REALITY:
+    type: http
+    url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/reality"
+    path: ./proxy-pr/yebekhe/reality.txt
+    health-check:
+      enable: true
+      interval: 432000
+      url: https://cp.cloudflare.com/generate_204
+
 
 rule-providers:
   LocalAreaNetwork:
@@ -200,11 +206,11 @@ rule-providers:
     path: ./rules/ads.txt
     interval: 86400
 rules:
-- IP-CIDR,10.10.34.0/24,Proxy
-- RULE-SET,ads,REJECT
-- RULE-SET,iran-ads,REJECT
-- RULE-SET,iran-sites,DIRECT
-- RULE-SET,LocalAreaNetwork,DIRECT
-- DOMAIN-SUFFIX,ir,DIRECT
-- GEOIP,IR,DIRECT
-- MATCH,Proxy
+  - IP-CIDR,10.10.34.0/24,Proxy
+  - RULE-SET,ads,REJECT
+  - RULE-SET,iran-ads,REJECT
+  - RULE-SET,iran-sites,DIRECT
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - DOMAIN-SUFFIX,ir,DIRECT
+  - GEOIP,IR,DIRECT
+  - MATCH,Proxy
