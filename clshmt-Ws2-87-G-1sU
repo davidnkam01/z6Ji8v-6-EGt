@@ -125,6 +125,7 @@ proxy-groups:
       - ybkhRealityv2h
       - yebekheDonated
       - yebekheREALITY
+      - srmirzareality
 
   - name: 📶 First Available
     type: fallback
@@ -134,6 +135,7 @@ proxy-groups:
       - ybkhRealityv2h
       - yebekheDonated
       - yebekheREALITY
+      - srmirzareality
 
   - name: ♻️ Load Balance
     type: load-balance
@@ -166,6 +168,15 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/reality"
     path: ./proxiez/ybkhreality.txt
+    health-check:
+      enable: true
+      interval: 432000
+      url: https://cp.cloudflare.com/generate_204
+
+  srmirzareality:
+    type: http
+    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/reality"
+    path: ./proxiez/srmzreality.txt
     health-check:
       enable: true
       interval: 432000
