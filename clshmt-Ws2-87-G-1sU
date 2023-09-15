@@ -115,16 +115,13 @@ proxy-groups:
       - ⚡️ Fastest
       - 📶 First Available
       - ♻️ Load Balance
-      - yebekheMix
-      - yebekheDonated
-      - yebekheREALITY
 
   - name: ⚡️ Fastest
     type: url-test
     tolerance: 150
     url: https://cp.cloudflare.com/generate_204
     interval: 300
-    proxies:
+    use:
       - yebekheMix
       - yebekheDonated
       - yebekheREALITY
@@ -133,7 +130,7 @@ proxy-groups:
     type: fallback
     url: https://cp.cloudflare.com/generate_204
     interval: 300
-    proxies:
+    use:
       - yebekheMix
       - yebekheDonated
       - yebekheREALITY
@@ -143,7 +140,7 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     strategy: consistent-hashing
-    proxies:
+    use:
       - yebekheMix
       - yebekheDonated
       - yebekheREALITY
