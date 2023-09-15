@@ -142,8 +142,11 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     strategy: consistent-hashing
-    proxies:
-      - ⚡️ Fastest
+    use:
+      - ybkhRealityv2h
+      - yebekheDonated
+      - yebekheREALITY
+      - srmirzareality
 
 proxy-providers:
   ybkhRealityv2h:
