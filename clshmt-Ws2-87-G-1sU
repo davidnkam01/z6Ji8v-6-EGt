@@ -147,7 +147,7 @@ proxy-providers:
   yebekheMix:
     type: http
     url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/mix"
-    path: ./proxiez/yebekhe/mix.txt
+    path: ./proxiez/ybkhmix.txt
     health-check:
       enable: true
       interval: 432000
@@ -156,7 +156,7 @@ proxy-providers:
   yebekheDonated:
     type: http
     url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/donated"
-    path: ./proxiez/yebekhe/donated.txt
+    path: ./proxiez/ybkhdonated.txt
     health-check:
       enable: true
       interval: 432000
@@ -165,7 +165,7 @@ proxy-providers:
   yebekheREALITY:
     type: http
     url: "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/reality"
-    path: ./proxiez/yebekhe/reality.txt
+    path: ./proxiez/ybkhreality.txt
     health-check:
       enable: true
       interval: 432000
