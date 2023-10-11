@@ -115,7 +115,6 @@ proxy-groups:
       - ⚡️ Fastest
       - 📶 First Available
       - ♻️ Load Balance
-      - 🎯 Direct
 
   - name: ⚡️ Fastest
     type: url-test
@@ -148,11 +147,6 @@ proxy-groups:
       - yebekheDonated
       - yebekheREALITY
       - srmirzareality
-
-  - name: 🎯 Direct
-    type: select
-    proxies:
-      - DIRECT
 
 proxy-providers:
   ybkhRealityv2h:
