@@ -218,4 +218,4 @@ rules:
   - RULE-SET,apps,DIRECT
   - RULE-SET,ir,DIRECT
   - RULE-SET,ircidr,DIRECT
-  - MATCH,MANUAL
+  - MATCH,Proxy
