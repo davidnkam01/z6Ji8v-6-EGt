@@ -133,7 +133,6 @@ proxy-groups:
     interval: 300
     use:
       - ybkhRealityv2h
-      - yebekheDonated
       - yebekheREALITY
       - srmirzareality
 
@@ -143,7 +142,6 @@ proxy-groups:
     interval: 300
     use:
       - ybkhRealityv2h
-      - yebekheDonated
       - yebekheREALITY
       - srmirzareality
 
@@ -153,15 +151,6 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/yebekhe/V2Hub/main/Split/Normal/reality"
     path: ./proxiez/ybkhrltyv2h
-    health-check:
-      enable: true
-      interval: 86400
-      url: https://cp.cloudflare.com/generate_204
-
-  yebekheDonated:
-    type: http
-    url: "https://yebekhe.link/api/toClash/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyebekhe%2FTelegramV2rayCollector%2Fmain%2Fsub%2Fbase64%2Fdonated&type=meta&process=full"
-    path: ./proxiez/ybkhdonated
     health-check:
       enable: true
       interval: 86400
