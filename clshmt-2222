@@ -159,16 +159,16 @@ rules:
   - RULE-SET,apps,DIRECT
   #- RULE-SET,apps-local,DIRECT
   - GEOSITE,category-ads-all,REJECT
-  - GEOSITE,nsfw,REJECT
-  - GEOSITE,malware,REJECT
-  - GEOSITE,phishing,REJECT
-  - GEOSITE,cryptominers,REJECT
-  - GEOIP,malware,REJECT
-  - GEOIP,phishing,REJECT
+  #- GEOSITE,nsfw,REJECT
+  #- GEOSITE,malware,REJECT
+  #- GEOSITE,phishing,REJECT
+  #- GEOSITE,cryptominers,REJECT
+  #- GEOIP,malware,REJECT
+  #- GEOIP,phishing,REJECT
   - GEOSITE,ir,DIRECT
   - GEOIP,ir,DIRECT
-  - GEOIP,arvancloud,DIRECT
-  - GEOIP,derakcloud,DIRECT
-  - GEOIP,iranserver,DIRECT
-  - GEOIP,parspack,DIRECT
+  #- GEOIP,arvancloud,DIRECT
+  #- GEOIP,derakcloud,DIRECT
+  #- GEOIP,iranserver,DIRECT
+  #- GEOIP,parspack,DIRECT
   - MATCH,default
