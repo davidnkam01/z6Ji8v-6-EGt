@@ -159,6 +159,5 @@ rules:
   - RULE-SET,apps,DIRECT
   #- RULE-SET,apps-local,DIRECT
   - GEOSITE,category-ads-all,REJECT
-  - GEOSITE,ir,DIRECT
   - GEOIP,ir,DIRECT
   - MATCH,default
