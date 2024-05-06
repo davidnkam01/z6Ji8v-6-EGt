@@ -9,145 +9,220 @@ p:
         enable: true,
         interval: 10800,
         lazy: false,
-        url: "https://cp.cloudflare.com/generate_204",
+        url: "http://gstatic.com/generate_204",
       },
   }
 
 allow-lan: true
 external-controller: "127.0.0.1:9091"
-external-ui: ui
-#external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/gh-pages.zip"
 tproxy-port: 0
 redir-port: 9797
 bind-address: "*"
 find-process-mode: "strict"
-geodata-mode: true
-geo-auto-update: true
-geo-update-interval: 168
-global-client-fingerprint: "random"
+global-client-fingerprint: "chrome"
 ipv6: true
-log-level: "error" ## silent/error/warning/info/debug
+log-level: "silent" ## silent/error/warning/info/debug
 mixed-port: 7890
 socks-port: 7891
 mode: "rule"
 tcp-concurrent: true
+enable-process: true
 unified-delay: true
-
-geox-url:
-  geoip: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-v2ray-rules@release/geoip.dat"
-  geosite: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-v2ray-rules@release/geosite.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-v2ray-rules@release/geoip.metadb"
-
+hosts:
+  "localhost": 127.0.0.1
 profile:
   store-fake-ip: true
-  store-selected: false
-
-ntp:
-  enable: true
-  write-to-system: false
-  server: "pool.ntp.org"
+  store-selected: true
 
 tun:
   enable: false
   device: utun
   stack: "gvisor" ## system/gvisor/mixed
-  dns-hijack:
-    - "udp://any:53"
-    - "tcp://any:53"
   auto-route: true
   strict-route: true
   auto-detect-interface: true
 
 dns:
   enable: true
-  listen: "127.0.0.1:1053"
-  ipv6: false
-  prefer-h3: true
-  enhanced-mode: "fake-ip"
-  use-hosts: true
+  ipv6: true
   default-nameserver:
-    - "8.8.4.4"
-    - "223.5.5.5"
-  proxy-server-nameserver:
-    - "https://pro.shecan.ir/dns-query"
-    - "https://1.0.0.1/dns-query"
-    - "https://223.5.5.5/dns-query"
+    - "8.8.8.8"
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
   nameserver:
-    - "https://1.0.0.1/dns-query#default"
-    - "https://8.8.4.4/dns-query#default"
-  fallback-filter:
-    geoip: false
+    - "8.8.4.4"
 
 proxy-groups:
   - name: default
     type: select
     include-all-providers: true
     proxies:
-      - auto
-      - manual
-      - DIRECT
-      - REJECT
+      - ⚡️ Fastest
+      - 📶 First Available
+      - ♻️ Load Balance
 
-  - name: manual
-    type: select
+  - name: ⚡️ Fastest
+    type: url-test
+    tolerance: 150
+    url: http://gstatic.com/generate_204
+    interval: 300
     include-all-providers: true
 
-  - name: auto
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
+  - name: 📶 First Available
+    type: fallback
+    url: http://gstatic.com/generate_204
+    interval: 300
+    include-all-providers: true
+
+  - name: ♻️ Load Balance
+    type: load-balance
+    url: http://gstatic.com/generate_204
+    interval: 300
+    strategy: consistent-hashing
     include-all-providers: true
 
 proxy-providers:
 
-  "myworker":
-    url: "https://subworker.nvidcodwrkr.workers.dev/sub"
-    path: "./provide/myvchi.yaml"
+  "tvc-mix":
+    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/xray/normal/mix"
+    path: "./provide/tvc-mix.yaml"
     <<: *p
 
 rule-providers:
-  apps-local:
-    {
-      type: file,
-      format: text,
-      behavior: classical,
-      path: ./ruleset/apps-local.txt,
-      interval: 86400,
-    }
+  #####DIRECT-rules#####
+
   apps:
-    {
-      type: http,
-      format: text,
-      behavior: domain,
-      path: ./ruleset/apps.txt,
-      url: https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt,
-      interval: 86400,
-    }
+    type: http
+    format: text
+    behavior: classical
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt"
+    path: ./ruleset/apps.txt
+    interval: 86400
+
+  ircidr:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt"
+    path: ./ruleset/ircidr.txt
+    interval: 86400
+
+  ir-lite:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.txt"
+    path: ./ruleset/ir-lite.txt
+    interval: 86400
+
+  private:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt"
+    path: ./ruleset/private.txt
+    interval: 86400
+
+  arvancloud:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt"
+    path: ./ruleset/arvancloud.txt
+    interval: 86400
+
+  derakcloud:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt"
+    path: ./ruleset/derakcloud.txt
+    interval: 86400
+
+  iranserver:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt"
+    path: ./ruleset/iranserver.txt
+    interval: 86400
+
+  parspack:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt"
+    path: ./ruleset/parspack.txt
+    interval: 86400
+
+  #######reject-rules#######
+  ads:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.txt"
+    path: ./ruleset/ads.txt
+    interval: 86400
+
+  category-ads-all:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt"
+    path: ./ruleset/category-ads-all.txt
+    interval: 86400
+
+  malware:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt"
+    path: ./ruleset/malware.txt
+    interval: 86400
+
+  malware-ip:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware-ip.txt"
+    path: ./ruleset/malware-ip.txt
+    interval: 86400
+
+  phishing:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.txt"
+    path: ./ruleset/phishing.txt
+    interval: 86400
+
+  phishing-ip:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing-ip.txt"
+    path: ./ruleset/phishing-ip.txt
+    interval: 86400
+
+  cryptominers:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.txt"
+    path: ./ruleset/cryptominers.txt
+    interval: 86400
+
+  nsfw:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/nsfw.txt"
+    path: ./ruleset/nsfw.txt
+    interval: 86400
 
 rules:
-  #- OR,((GEOSITE,private),(GEOIP,private,no-resolve)),DIRECT
-
-  #- OR,((GEOSITE,category-ads-all),(GEOSITE,malware),(GEOSITE,phishing),(GEOSITE,cryptominers)),REJECT
-  #- OR,((GEOSITE,category-porn),(GEOSITE,nsfw)),REJECT ## Pornography and gambling
-
-  #- OR,((GEOSITE,category-ir),(GEOSITE,ir)),DIRECT
-  #- OR,((DOMAIN-SUFFIX,d.metacubex.one),(DOMAIN-SUFFIX,yacd.haishan.me)),DIRECT ## Dashboards
-  #- GEOSITE,category-games,DIRECT ## Gaming
-
-  #- GEOSITE,geolocation-!cn,default ## When all else failed, vote from the rooftops.
-
-  #- OR,((GEOIP,malware),(GEOIP,phishing)),REJECT
-  #- GEOIP,ir,DIRECT
-
-  #- IP-CIDR,127.0.0.1/32,REJECT,no-resolve
-  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-  - IP-CIDR,28.0.0.1/8,REJECT,no-resolve
-  - IP-CIDR6,::1/128,REJECT,no-resolve
-  - DOMAIN-SUFFIX,local,DIRECT
-  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
-  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
-  - DOMAIN-SUFFIX,lan,DIRECT
-  - DOMAIN-SUFFIX,localhost,DIRECT
-  - DOMAIN-SUFFIX,ir,DIRECT
+  #####DIRECT-rules#####
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
   - DOMAIN,yacd.metacubex.one,DIRECT
@@ -155,9 +230,33 @@ rules:
   - DOMAIN,d.metacubex.one,DIRECT
   - DOMAIN,metacubex.github.io/metacubexd,DIRECT
   - DOMAIN,metacubexd.pages.dev,DIRECT
-  #- GEOIP,cloudflare,DIRECT
+
+  - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
+  - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
+  - IP-CIDR,28.0.0.1/8,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,local,DIRECT
+  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
+  - DOMAIN-SUFFIX,lan,DIRECT
+  - DOMAIN-SUFFIX,localhost,DIRECT
+  - DOMAIN-SUFFIX,ir,DIRECT
+
+  - RULE-SET,ir-lite,DIRECT
+  - RULE-SET,ircidr,DIRECT
+  - RULE-SET,arvancloud,DIRECT
+  - RULE-SET,derakcloud,DIRECT
+  - RULE-SET,iranserver,DIRECT
+  - RULE-SET,parspack,DIRECT
   - RULE-SET,apps,DIRECT
-  #- RULE-SET,apps-local,DIRECT
-  - GEOSITE,category-ads-all,REJECT
-  - GEOIP,ir,DIRECT
+
+  #######reject-rules#######
+  - RULE-SET,ads,REJECT
+  - RULE-SET,category-ads-all,REJECT
+  - RULE-SET,malware,REJECT
+  - RULE-SET,malware-ip,REJECT
+  - RULE-SET,phishing,REJECT
+  - RULE-SET,phishing-ip,REJECT
+  - RULE-SET,cryptominers,REJECT
+
   - MATCH,default
