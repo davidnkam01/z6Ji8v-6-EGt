@@ -67,7 +67,8 @@ proxy-groups:
     proxies:
       - ⚡️ Fast-All
       - (01)agg
-      - (02)agg
+      - (02)f2r
+      - (03)f2h
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -76,7 +77,8 @@ proxy-groups:
     interval: 300
     proxies:
       - (01)agg
-      - (02)agg
+      - (02)f2r
+      - (03)f2h
   
   - name: (01)agg
     type: url-test
@@ -86,13 +88,21 @@ proxy-groups:
     use:
       - 01agg
 
-  - name: (02)agg
+  - name: (02)f2r
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 02agg
+      - 02f2r
+
+  - name: (03)f2h
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - 03f2h
 
 proxy-providers:
 
@@ -102,10 +112,18 @@ proxy-providers:
     path: ./provide/01agg.yaml
     interval: 3600
     proxy: DIRECT
-  02agg:
+
+  02f2r:
     type: http
-    url: "https://github.com/mahdibland/V2RayAggregator?tab=readme-ov-file#high-speed-node"
-    path: ./provide/02agg.yaml
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
+    path: ./provide/02f2r.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  03f2h:
+    type: http
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
+    path: ./provide/03f2h.yaml
     interval: 3600
     proxy: DIRECT
 
