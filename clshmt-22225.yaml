@@ -68,6 +68,7 @@ proxy-groups:
       - ⚡️ Fast-All
       - (01)agg
       - (02)f2c
+      - (03)10ium-hin-mix
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -77,6 +78,7 @@ proxy-groups:
     proxies:
       - (01)agg
       - (02)f2c
+      - (03)10ium-hin-mix
   
   - name: (01)agg
     type: url-test
@@ -94,6 +96,14 @@ proxy-groups:
     use:
       - 02f2c1
       - 02f2c2
+
+  - name: (03)10ium-hin-mix
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - 0310ium-hin-mix
 
 proxy-providers:
 
@@ -115,6 +125,13 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
     path: ./provide/02f2c2.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  0310ium-hin-mix:
+    type: http
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
+    path: ./provide/0310ium-hin-mix.yaml
     interval: 3600
     proxy: DIRECT
 
