@@ -68,7 +68,7 @@ proxy-groups:
       - ⚡️ Fast-All
       - (01)agg
       - (02)f2c
-      - (03)10ium-hin-ss
+      - (03)10ium-v2l-mix
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -78,7 +78,7 @@ proxy-groups:
     proxies:
       - (01)agg
       - (02)f2c
-      - (03)10ium-hin-ss
+      - (03)10ium-v2l-mix
   
   - name: (01)agg
     type: url-test
@@ -97,13 +97,13 @@ proxy-groups:
       - 02f2c1
       - 02f2c2
 
-  - name: (03)10ium-hin-ss
+  - name: (03)10ium-v2l-mix
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 0310ium-hin-ss
+      - 0310ium-v2l-mix
 
 proxy-providers:
 
@@ -128,10 +128,10 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
 
-  0310ium-hin-ss:
+  0310ium-v2l-mix:
     type: http
-    url: "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/base64/mix"
-    path: ./provide/0310ium-hin-ss.yaml
+    url: "https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/mixed_iran.txt"
+    path: ./provide/0310ium-v2l-mix.yaml
     interval: 3600
     proxy: DIRECT
 
