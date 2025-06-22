@@ -66,7 +66,7 @@ proxy-groups:
     type: select
     proxies:
       - ⚡️ Fast-All
-      - ⚡️ agg-eter
+      - 01-agg
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -74,23 +74,23 @@ proxy-groups:
     url: http://clients3.google.com/generate_204
     interval: 300
     proxies:
-      - ⚡️ agg-eter
+      - 01-agg
   
-  - name: ⚡️ agg-eter
+  - name: 01-agg
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - aggeter
+      - agg
 
 proxy-providers:
 
-  aggeter:
+  agg:
     type: http
     url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
-    path: ./provide/aggeter.yaml
-    interval: 86400
+    path: ./provide/agg.yaml
+    interval: 3600
     proxy: DIRECT
 
 rule-providers:
