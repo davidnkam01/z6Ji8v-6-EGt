@@ -130,7 +130,7 @@ proxy-providers:
 
   0310ium-hin-mix:
     type: http
-    url: "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/normal/mix"
+    url: "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/normal/mi"
     path: ./provide/0310ium-hin-mix.yaml
     interval: 3600
     proxy: DIRECT
