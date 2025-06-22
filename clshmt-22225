@@ -98,7 +98,9 @@ proxy-providers:
   aggeter:
     url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
     path: ./provide/aggeter.yaml
-    <<: *p
+    type: "http",
+    interval: 86400,
+    proxy: DIRECT
 
 rule-providers:
   #####DIRECT-rules#####
