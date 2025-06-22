@@ -95,7 +95,7 @@ proxy-groups:
 
 proxy-providers:
 
-  aggeter
+  aggeter:
     url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
     path: "./provide/aggeter.yaml"
     <<: *p
