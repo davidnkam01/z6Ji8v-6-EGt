@@ -67,6 +67,13 @@ proxy-groups:
     proxies:
       - ⚡️ agg-eter
 
+  - name: ⚡️ Fast-All
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    proxies:
+      - ⚡️ agg-eter
   
   - name: ⚡️ agg-eter
     type: url-test
