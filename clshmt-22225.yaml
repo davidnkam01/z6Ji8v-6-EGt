@@ -67,7 +67,7 @@ proxy-groups:
     proxies:
       - ⚡️ Fast-All
       - (01)agg
-      - 02f2c
+      - (02)f2c
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -76,7 +76,7 @@ proxy-groups:
     interval: 300
     proxies:
       - (01)agg
-      - 02f2c
+      - (02)f2c
   
   - name: (01)agg
     type: url-test
@@ -86,7 +86,7 @@ proxy-groups:
     use:
       - 01agg
 
-  - name: 02f2c
+  - name: (02)f2c
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
