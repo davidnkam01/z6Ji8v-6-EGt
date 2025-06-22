@@ -114,7 +114,7 @@ proxy-groups:
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
-    providers:
+    use:
       - agg-eternity
 
 proxy-providers:
