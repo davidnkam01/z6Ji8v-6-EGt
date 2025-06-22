@@ -122,7 +122,7 @@ proxy-providers:
 
   03f2h:
     type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
     path: ./provide/03f2h.yaml
     interval: 3600
     proxy: DIRECT
