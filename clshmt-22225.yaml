@@ -35,7 +35,7 @@ dns:
   - 8.8.8.8#DIRECT
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT,
-    time.apple.com: 8.8.8.8#DIRECT,
+    time.cloudflare.com: 8.8.8.8#DIRECT,
     www.gstatic.com: system,
     clients3.google.com: system,
     rule-set:ir-lite: 8.8.8.8#DIRECT
@@ -66,7 +66,8 @@ proxy-groups:
     type: select
     proxies:
       - ⚡️ Fast-All
-      - 01-agg
+      - (01)agg
+      - (02)agg
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -74,22 +75,37 @@ proxy-groups:
     url: http://clients3.google.com/generate_204
     interval: 300
     proxies:
-      - 01-agg
+      - (01)agg
+      - (02)agg
   
-  - name: 01-agg
+  - name: (01)agg
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - agg
+      - 01agg
+
+  - name: (02)agg
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - 02agg
 
 proxy-providers:
 
-  agg:
+  01agg:
     type: http
     url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
-    path: ./provide/agg.yaml
+    path: ./provide/01agg.yaml
+    interval: 3600
+    proxy: DIRECT
+  02agg:
+    type: http
+    url: "https://github.com/mahdibland/V2RayAggregator?tab=readme-ov-file#high-speed-node"
+    path: ./provide/02agg.yaml
     interval: 3600
     proxy: DIRECT
 
