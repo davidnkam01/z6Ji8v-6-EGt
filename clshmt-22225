@@ -65,6 +65,7 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
+      - ⚡️ Fast-All
       - ⚡️ agg-eter
 
   - name: ⚡️ Fast-All
