@@ -2,42 +2,40 @@ p:
   &p {
     type: "http",
     interval: 86400,
-    exclude-type: "http|socks5",
-    exclude-filter: "🇮🇱|🇨🇳|🇷🇺|🇮🇷",
+    proxy: DIRECT,
     health-check:
       {
         enable: true,
         interval: 10800,
         lazy: false,
-        url: "http://gstatic.com/generate_204",
+        url: "http://clients3.google.com/generate_204",
       },
   }
 
-allow-lan: true
-external-controller: "127.0.0.1:9091"
-tproxy-port: 0
-redir-port: 9797
-bind-address: "*"
-find-process-mode: "strict"
-global-client-fingerprint: "chrome"
-ipv6: true
-log-level: "silent" ## silent/error/warning/info/debug
+
+
 mixed-port: 7890
 socks-port: 7891
-mode: "rule"
-tcp-concurrent: true
-enable-process: true
+ipv6: true
+log-level: silent
+allow-lan: true
+mode: rule
+disable-keep-alive: false
+global-client-fingerprint: "chrome"
+keep-alive-interval: 15
+keep-alive-idle: 10
 unified-delay: true
-hosts:
-  "localhost": 127.0.0.1
 profile:
-  store-fake-ip: true
   store-selected: true
+  store-fake-ip: true
 
 tun:
-  enable: false
-  device: utun
-  stack: "gvisor" ## system/gvisor/mixed
+  enable: true
+  mtu: 9000
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  stack: mixed
   auto-route: true
   strict-route: true
   auto-detect-interface: true
@@ -45,13 +43,40 @@ tun:
 dns:
   enable: true
   ipv6: true
-  default-nameserver:
-    - "8.8.8.8"
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  use-hosts: true
+  respect-rules: true
+  listen: 0.0.0.0:1053
+  use-system-hosts: false
   nameserver:
-    - "8.8.4.4"
+  - https://8.8.8.8/dns-query#default
+  proxy-server-nameserver:
+  - 8.8.8.8#DIRECT
+  nameserver-policy:
+    raw.githubusercontent.com: 8.8.8.8#DIRECT,
+    time.apple.com: 8.8.8.8#DIRECT,
+    www.gstatic.com: system,
+    clients3.google.com: system,
+    rule-set:ir-lite: 8.8.8.8#DIRECT
+  hosts:
+    rule-set:malware: 127.0.0.1,
+    rule-set:phishing: 127.0.0.1,
+    rule-set:cryptominers: 127.0.0.1
+
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
+    TLS:
+      ports: [443, 8443, 2053, 2083, 2087, 2096]
+
+ntp:
+  enable: true
+  server: time.cloudflare.com
+  port: 123
+  interval: 30
 
 proxy-groups:
   - name: default
@@ -65,164 +90,147 @@ proxy-groups:
   - name: ⚡️ Fastest
     type: url-test
     tolerance: 150
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     include-all-providers: true
 
   - name: 📶 First Available
     type: fallback
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     include-all-providers: true
 
   - name: ♻️ Load Balance
     type: load-balance
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     strategy: consistent-hashing
     include-all-providers: true
 
 proxy-providers:
 
-  "tvc-mix":
-    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/xray/normal/mix"
-    path: "./provide/tvc-mix.yaml"
+  "agg-eternity":
+    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
+    path: "./provide/agg-eternity.yaml"
     <<: *p
 
 rule-providers:
   #####DIRECT-rules#####
-
   apps:
     type: http
     format: text
     behavior: classical
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/apps.txt"
     path: ./ruleset/apps.txt
+    proxy: DIRECT
     interval: 86400
 
   ircidr:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ircidr.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ircidr.txt"
     path: ./ruleset/ircidr.txt
+    proxy: DIRECT
     interval: 86400
 
   ir-lite:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ir-lite.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ir-lite.txt"
     path: ./ruleset/ir-lite.txt
+    proxy: DIRECT
     interval: 86400
 
   private:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/private.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/private.txt"
     path: ./ruleset/private.txt
+    proxy: DIRECT
     interval: 86400
 
   arvancloud:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/arvancloud.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/arvancloud.txt"
     path: ./ruleset/arvancloud.txt
+    proxy: DIRECT
     interval: 86400
 
   derakcloud:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/derakcloud.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/derakcloud.txt"
     path: ./ruleset/derakcloud.txt
+    proxy: DIRECT
     interval: 86400
 
   iranserver:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/iranserver.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/iranserver.txt"
     path: ./ruleset/iranserver.txt
+    proxy: DIRECT
     interval: 86400
 
   parspack:
     type: http
     format: text
     behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/parspack.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/parspack.txt"
     path: ./ruleset/parspack.txt
+    proxy: DIRECT
     interval: 86400
 
-  #######reject-rules#######
+  irasn:
+    type: http
+    format: text
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/irasn.txt"
+    path: ./ruleset/irasn.txt
+    proxy: DIRECT
+    interval: 86400
+  
+
+
+  ####Reject-Rules####
   ads:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/ads.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/ads.txt"
     path: ./ruleset/ads.txt
     interval: 86400
-
-  category-ads-all:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/category-ads-all.txt"
-    path: ./ruleset/category-ads-all.txt
-    interval: 86400
-
   malware:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/malware.txt"
     path: ./ruleset/malware.txt
     interval: 86400
-
-  malware-ip:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/malware-ip.txt"
-    path: ./ruleset/malware-ip.txt
-    interval: 86400
-
   phishing:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/phishing.txt"
     path: ./ruleset/phishing.txt
     interval: 86400
-
-  phishing-ip:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/phishing-ip.txt"
-    path: ./ruleset/phishing-ip.txt
-    interval: 86400
-
   cryptominers:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/cryptominers.txt"
+    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/cryptominers.txt"
     path: ./ruleset/cryptominers.txt
     interval: 86400
 
-  nsfw:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/nsfw.txt"
-    path: ./ruleset/nsfw.txt
-    interval: 86400
-
 rules:
-  #####DIRECT-rules#####
+  #####direct-rules#####
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
   - DOMAIN,yacd.metacubex.one,DIRECT
@@ -231,10 +239,6 @@ rules:
   - DOMAIN,metacubex.github.io/metacubexd,DIRECT
   - DOMAIN,metacubexd.pages.dev,DIRECT
 
-  - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
-  - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
-  - IP-CIDR,28.0.0.1/8,DIRECT,no-resolve
-  - IP-CIDR6,::1/128,DIRECT,no-resolve
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,ip6-localhost,DIRECT
   - DOMAIN-SUFFIX,ip6-loopback,DIRECT
@@ -248,15 +252,15 @@ rules:
   - RULE-SET,derakcloud,DIRECT
   - RULE-SET,iranserver,DIRECT
   - RULE-SET,parspack,DIRECT
+  - RULE-SET,irasn,DIRECT
   - RULE-SET,apps,DIRECT
+  - RULE-SET,private,DIRECT,no-resolve
 
-  #######reject-rules#######
+  ####Reject-Rules####
+  - NETWORK,udp,REJECT
   - RULE-SET,ads,REJECT
-  - RULE-SET,category-ads-all,REJECT
   - RULE-SET,malware,REJECT
-  - RULE-SET,malware-ip,REJECT
   - RULE-SET,phishing,REJECT
-  - RULE-SET,phishing-ip,REJECT
   - RULE-SET,cryptominers,REJECT
 
   - MATCH,default
