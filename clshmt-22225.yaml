@@ -68,7 +68,7 @@ proxy-groups:
       - ⚡️ Fast-All
       - (01)agg
       - (02)f2c
-      - (03)10ium-hin-mix
+      - (03)10ium-hin-vl
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -78,7 +78,7 @@ proxy-groups:
     proxies:
       - (01)agg
       - (02)f2c
-      - (03)10ium-hin-mix
+      - (03)10ium-hin-vl
   
   - name: (01)agg
     type: url-test
@@ -97,13 +97,13 @@ proxy-groups:
       - 02f2c1
       - 02f2c2
 
-  - name: (03)10ium-hin-mix
+  - name: (03)10ium-hin-vl
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 0310ium-hin-mix
+      - 0310ium-hin-vl
 
 proxy-providers:
 
@@ -128,10 +128,10 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
 
-  0310ium-hin-mix:
+  0310ium-hin-vl:
     type: http
-    url: "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/normal/mix"
-    path: ./provide/0310ium-hin-mix.yaml
+    url: "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/normal/vless"
+    path: ./provide/0310ium-hin-vl.yaml
     interval: 3600
     proxy: DIRECT
 
