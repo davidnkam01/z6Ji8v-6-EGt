@@ -67,8 +67,7 @@ proxy-groups:
     proxies:
       - ⚡️ Fast-All
       - (01)agg
-      - (02)f2r
-      - (03)f2h
+      - 02f2c
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -77,8 +76,7 @@ proxy-groups:
     interval: 300
     proxies:
       - (01)agg
-      - (02)f2r
-      - (03)f2h
+      - 02f2c
   
   - name: (01)agg
     type: url-test
@@ -88,21 +86,14 @@ proxy-groups:
     use:
       - 01agg
 
-  - name: (02)f2r
+  - name: 02f2c
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 02f2r
-
-  - name: (03)f2h
-    type: url-test
-    tolerance: 100
-    url: http://clients3.google.com/generate_204
-    interval: 300
-    use:
-      - 03f2h
+      - 02f2c1
+      - 02f2c2
 
 proxy-providers:
 
@@ -113,17 +104,17 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
 
-  02f2r:
+  02f2c1:
     type: http
     url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
-    path: ./provide/02f2r.yaml
+    path: ./provide/02f2c1.yaml
     interval: 3600
     proxy: DIRECT
 
-  03f2h:
+  02f2c2:
     type: http
     url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
-    path: ./provide/03f2h.yaml
+    path: ./provide/02f2c2.yaml
     interval: 3600
     proxy: DIRECT
 
