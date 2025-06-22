@@ -81,7 +81,6 @@ ntp:
 proxy-groups:
   - name: default
     type: select
-    include-all-providers: true
     proxies:
       - ⚡️ Fastest
       - 📶 First Available
@@ -89,7 +88,6 @@ proxy-groups:
 
   - name: ⚡️ Fastest
     type: url-test
-    tolerance: 150
     url: http://clients3.google.com/generate_204
     interval: 300
     include-all-providers: true
