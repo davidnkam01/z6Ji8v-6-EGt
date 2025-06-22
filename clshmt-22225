@@ -85,24 +85,35 @@ proxy-groups:
       - ⚡️ Fastest
       - 📶 First Available
       - ♻️ Load Balance
+      - ⚡️ agg-eter
 
   - name: ⚡️ Fastest
     type: url-test
     url: http://clients3.google.com/generate_204
     interval: 300
-    include-all-providers: true
+    proxies:
+      - ⚡️ agg-eter
 
   - name: 📶 First Available
     type: fallback
     url: http://clients3.google.com/generate_204
     interval: 300
-    include-all-providers: true
+    proxies:
+      - ⚡️ agg-eter
 
   - name: ♻️ Load Balance
     type: load-balance
     url: http://clients3.google.com/generate_204
     interval: 300
     strategy: consistent-hashing
+    proxies:
+      - ⚡️ agg-eter
+  
+  - name: ⚡️ agg-eter
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
     include-all-providers: true
 
 proxy-providers:
