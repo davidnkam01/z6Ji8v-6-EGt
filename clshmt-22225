@@ -1,7 +1,7 @@
 p:
   &p {
     type: "http",
-    interval: 3600,
+    interval: 86400,
     proxy: DIRECT,
     health-check:
       {
@@ -114,7 +114,8 @@ proxy-groups:
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
-    include-all-providers: true
+    providers:
+      - agg-eternity
 
 proxy-providers:
 
