@@ -8,7 +8,7 @@ p:
         enable: true,
         interval: 10800,
         lazy: false,
-        url: "http://clients3.google.com/generate_204",
+        url: http://clients3.google.com/generate_204,
       },
   }
 
@@ -96,8 +96,8 @@ proxy-groups:
 proxy-providers:
 
   aggeter:
-    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
-    path: "./provide/aggeter.yaml"
+    url: https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml
+    path: ./provide/aggeter.yaml
     <<: *p
 
 rule-providers:
