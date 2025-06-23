@@ -68,7 +68,7 @@ proxy-groups:
       - ⚡️ Fast-All
       - (01)agg
       - (02)f2c
-      - (03)10ium-v2l-mix
+      - (03)sm-hys
 
   - name: ⚡️ Fast-All
     type: url-test
@@ -78,7 +78,7 @@ proxy-groups:
     proxies:
       - (01)agg
       - (02)f2c
-      - (03)10ium-v2l-mix
+      - (03)sm-hys
   
   - name: (01)agg
     type: url-test
@@ -97,13 +97,13 @@ proxy-groups:
       - 02f2c1
       - 02f2c2
 
-  - name: (03)10ium-v2l-mix
+  - name: (03)sm-hys
     type: url-test
     tolerance: 100
     url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 0310ium-v2l-mix
+      - 03sm-hys
 
 proxy-providers:
 
@@ -128,10 +128,10 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
 
-  0310ium-v2l-mix:
+  03sm-hys:
     type: http
-    url: "https://raw.githubusercontent.com/10ium/V2rayCollectorLite/main/mixed_iran.txt"
-    path: ./provide/0310ium-v2l-mix.yaml
+    url: "https://url.v1.mk/sub?&url=https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria&target=clash&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Funiversal%2Furltest.ini&emoji=false&append_type=true&append_info=true&scv=true&udp=true&list=true&sort=false&fdn=true&insert=false"
+    path: ./provide/03sm-hys.yaml
     interval: 3600
     proxy: DIRECT
 
