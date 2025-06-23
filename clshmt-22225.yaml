@@ -9,7 +9,7 @@ keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: true
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 
 tun:
