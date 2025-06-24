@@ -69,12 +69,14 @@ proxy-groups:
       - (01)agg
       - (02)f2c
       - (03)sm-hys
+      - DIRECT
 
   - name: ⚡️ Fast-All
     type: url-test
     url: http://clients3.google.com/generate_204
     interval: 300
     proxies:
+      - DIRECT
       - (01)agg
       - (02)f2c
       - (03)sm-hys
