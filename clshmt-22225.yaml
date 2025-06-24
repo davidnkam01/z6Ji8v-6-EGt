@@ -37,7 +37,7 @@ dns:
     raw.githubusercontent.com: 8.8.8.8#DIRECT,
     time.cloudflare.com: 8.8.8.8#DIRECT,
     www.gstatic.com: system,
-    clients3.google.com: system,
+    gstatic.com: system,
     rule-set:ir-lite: 8.8.8.8#DIRECT
   hosts:
     rule-set:malware: 127.0.0.1,
@@ -73,7 +73,7 @@ proxy-groups:
 
   - name: ⚡️ Fast-All
     type: url-test
-    url: http://clients3.google.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     proxies:
       - DIRECT
@@ -84,7 +84,7 @@ proxy-groups:
   - name: (01)agg
     type: url-test
     tolerance: 100
-    url: http://clients3.google.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     use:
       - 01agg
@@ -92,7 +92,7 @@ proxy-groups:
   - name: (02)f2c
     type: url-test
     tolerance: 100
-    url: http://clients3.google.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     use:
       - 02f2c1
@@ -101,7 +101,7 @@ proxy-groups:
   - name: (03)sm-hys
     type: url-test
     tolerance: 100
-    url: http://clients3.google.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     use:
       - 03sm-hys
