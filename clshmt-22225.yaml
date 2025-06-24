@@ -69,17 +69,17 @@ proxy-groups:
       - (01)agg
       - (02)f2c
       - (03)sm-hys
-      - DIRECT
+      - (zz)mos
 
   - name: ⚡️ Fast-All
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
     proxies:
-      - DIRECT
       - (01)agg
       - (02)f2c
       - (03)sm-hys
+      - (zz)mos
   
   - name: (01)agg
     type: url-test
@@ -105,6 +105,13 @@ proxy-groups:
     interval: 300
     use:
       - 03sm-hys
+
+  - name: (zz)mos
+    type: url-test
+    url: http://gstatic.com/generate_204
+    interval: 300
+    use:
+      - DIRECT
 
 proxy-providers:
 
