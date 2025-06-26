@@ -66,9 +66,9 @@ proxy-groups:
     type: select
     proxies:
       - ⚡️ Fast-All
-      - (01)agg
-      - (02)f2c
-      - (03)sm-hys
+      - agg
+      - f2c
+      - sm-hys
       - DIRECT
 
   - name: ⚡️ Fast-All
@@ -76,19 +76,22 @@ proxy-groups:
     url: http://gstatic.com/generate_204
     interval: 300
     proxies:
-      - (01)agg
-      - (02)f2c
-      - (03)sm-hys
+      - sm-hys
+      - f2c
+      - agg
+
+
   
-  - name: (01)agg
+  - name: agg
     type: url-test
     tolerance: 100
     url: http://gstatic.com/generate_204
     interval: 300
+    hidden: true
     use:
       - 01agg
 
-  - name: (02)f2c
+  - name: f2c
     type: url-test
     tolerance: 100
     url: http://gstatic.com/generate_204
@@ -97,7 +100,7 @@ proxy-groups:
       - 02f2c1
       - 02f2c2
 
-  - name: (03)sm-hys
+  - name: sm-hys
     type: url-test
     tolerance: 100
     url: http://gstatic.com/generate_204
