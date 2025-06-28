@@ -37,8 +37,6 @@ dns:
     - 8.8.8.8#DIRECT
   direct-nameserver:
     - 8.8.8.8#DIRECT
-  proxy-server-nameserver:
-    - 8.8.8.8#DIRECT
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT,
     time.cloudflare.com: 8.8.8.8#DIRECT,
