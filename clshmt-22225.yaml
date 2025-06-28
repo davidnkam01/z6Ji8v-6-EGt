@@ -9,7 +9,7 @@ keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: true
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 
 tun:
@@ -30,14 +30,20 @@ dns:
   listen: 0.0.0.0:1053
   use-system-hosts: false
   nameserver:
-  - https://8.8.8.8/dns-query#Selector
+    - https://8.8.8.8/dns-query#Selector
   proxy-server-nameserver:
-  - 8.8.8.8#DIRECT
+    - 8.8.8.8#DIRECT
+  default-nameserver:
+    - 8.8.8.8#DIRECT
+  direct-nameserver:
+    - 8.8.8.8#DIRECT
+  proxy-server-nameserver:
+    - 8.8.8.8#DIRECT
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT,
     time.cloudflare.com: 8.8.8.8#DIRECT,
     www.gstatic.com: system,
-    gstatic.com: system,
+    www.clients3.google.com: system,
     rule-set:ir-lite: 8.8.8.8#DIRECT
   hosts:
     rule-set:malware: 127.0.0.1,
@@ -45,7 +51,7 @@ dns:
     rule-set:cryptominers: 127.0.0.1
 
 sniffer:
-  enable: false
+  enable: true
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -66,75 +72,152 @@ proxy-groups:
     type: select
     proxies:
       - ⚡️ Fast-All
-      - agg
-      - f2c
-      - sm-hys
+      - Maji
+      - Elah
+      - Attt
+      - mj444
+      - r8x
+      - r8x-maji
+      - xrayshop-100
+      - xrayshop-kh
       - DIRECT
 
   - name: ⚡️ Fast-All
     type: url-test
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     proxies:
-      - sm-hys
-      - f2c
-      - agg
+      - Maji
+      - Elah
+      - Attt
+      - mj444
+      - r8x
+      - r8x-maji
+      - xrayshop-100
+      - xrayshop-kh
 
 
   
-  - name: agg
+  - name: Maji
     type: url-test
     tolerance: 100
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     hidden: true
     use:
-      - 01agg
+      - haji-maji
 
-  - name: f2c
+  - name: Elah
     type: url-test
     tolerance: 100
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 02f2c1
-      - 02f2c2
+      - el
 
-  - name: sm-hys
+  - name: Attt
     type: url-test
     tolerance: 100
-    url: http://gstatic.com/generate_204
+    url: http://clients3.google.com/generate_204
     interval: 300
     use:
-      - 03sm-hys
+      - at
+
+  - name: mj444
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - mj4
+
+  - name: r8x
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - rex
+
+  - name: r8x-maji
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - rexmaji
+
+  - name: xrayshop-100
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - xrayshop100
+
+  - name: xrayshop-kh
+    type: url-test
+    tolerance: 100
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - xrayshop
 
 proxy-providers:
 
-  01agg:
+  haji-maji:
     type: http
-    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
-    path: ./provide/01agg.yaml
+    url: "https://url.v1.mk/sub?&url=https://irani.uno/sub/TWFqaWQtMjcyMzQsMTc1MDcxMDgzOQE101RXVfKH&target=clash&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Funiversal%2Furltest.ini&emoji=false&append_type=true&append_info=true&scv=true&udp=true&list=true&sort=false&fdn=true&insert=false"
+    path: ./provide/haji-maji.yaml
     interval: 3600
     proxy: DIRECT
 
-  02f2c1:
+  el:
     type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
-    path: ./provide/02f2c1.yaml
+    url: "https://irani.uno/sub/RWxhaGUtMjEyMzIsMTc1MDc4MDMxNAcAM6oiHsvz"
+    path: ./provide/el.yaml
     interval: 3600
     proxy: DIRECT
 
-  02f2c2:
+  at:
     type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
-    path: ./provide/02f2c2.yaml
+    url: "https://irani.uno/sub/QXRlZmUtMDk0NDgsMTc1MDkwNjI4MAMOiNgyWD6u"
+    path: ./provide/at.yaml
     interval: 3600
     proxy: DIRECT
 
-  03sm-hys:
+  mj4:
     type: http
-    url: "https://url.v1.mk/sub?&url=https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria&target=clash&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Funiversal%2Furltest.ini&emoji=false&append_type=true&append_info=true&scv=true&udp=true&list=true&sort=false&fdn=true&insert=false"
-    path: ./provide/03sm-hys.yaml
+    url: "https://sub.upstv.online/sub/c2VydmVyc2lyYW5fQG1zbG1fOTksMTc1MDQwNTgxOA59SOfzYjTW"
+    path: ./provide/mj4.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  rex:
+    type: http
+    url: "https://r8x.ir/webfragment/fragment.php?id=6b67417e-f257-4ca0-851a-a26e584adbe2"
+    path: ./provide/rex.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  xrayshop:
+    type: http
+    url: "https://ecare-asiatech-ir-my-asiatech-ir-asiatech-ir.aslatech.ir:8443/support/MjM2MTI4OWhtYTk4LDE3NTA4MzUwMDE3-k69r_VSd"
+    path: ./provide/xrayshop.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  xrayshop100:
+    type: http
+    url: "https://ecare-asiatech-ir-my-asiatech-ir-asiatech-ir.aslatech.ir:8443/support/bGVpaWxhLDE3NTA1OTYyMTc6Y7atyJqjl"
+    path: ./provide/xrayshop100.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  rexmaji:
+    type: http
+    url: "https://r8x.ir/webfragment/fragment.php?id=b02e1d62-57c8-435a-bc3b-657ba15c3c00"
+    path: ./provide/rexmaji.yaml
     interval: 3600
     proxy: DIRECT
 
