@@ -71,6 +71,7 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
+      - FB-ALL
       - agg
       - f2c
       - sm-hys
