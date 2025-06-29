@@ -76,11 +76,27 @@ proxy-groups:
       - sm-hys
       - DIRECT
 
+  - name: FB-ALL
+    type: fallback
+    url: http://gstatic.com/generate_204
+    interval: 300
+    hidden: true
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+    proxies:
+      - agg
+      - f2c
+      - sm-hys
+
   - name: agg
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
     use:
       - 01agg
 
@@ -89,6 +105,9 @@ proxy-groups:
     url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
     use:
       - 02f2c1
       - 02f2c2
@@ -98,6 +117,9 @@ proxy-groups:
     url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
     use:
       - 03sm-hys
 
