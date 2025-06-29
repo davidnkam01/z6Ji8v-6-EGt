@@ -77,12 +77,12 @@ proxy-groups:
       - f2c
       - sm-hys
       - DIRECT
-      
+
   - name: agg
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-
+    hidden: true
     use:
       - 01agg
 
@@ -90,6 +90,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    hidden: true
     use:
       - 02f2c1
       - 02f2c2
@@ -98,6 +99,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    hidden: true
     use:
       - 03sm-hys
 
