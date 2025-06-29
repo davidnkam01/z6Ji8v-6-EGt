@@ -8,8 +8,16 @@ disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: true
+"external-controller": 127.0.0.1:9090
+"external-ui-url": https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+"external-ui": zashboard
+external-controller-cors:
+  allow-origins:
+    - "*"
+  allow-private-network: true
+
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 
 tun:
@@ -180,42 +188,6 @@ rule-providers:
     proxy: DIRECT
     interval: 86400
 
-  arvancloud:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/arvancloud.txt"
-    path: ./ruleset/arvancloud.txt
-    proxy: DIRECT
-    interval: 86400
-
-  derakcloud:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/derakcloud.txt"
-    path: ./ruleset/derakcloud.txt
-    proxy: DIRECT
-    interval: 86400
-
-  iranserver:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/iranserver.txt"
-    path: ./ruleset/iranserver.txt
-    proxy: DIRECT
-    interval: 86400
-
-  parspack:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-clash-rules@release/parspack.txt"
-    path: ./ruleset/parspack.txt
-    proxy: DIRECT
-    interval: 86400
-
   irasn:
     type: http
     format: text
@@ -266,6 +238,7 @@ rules:
   - DOMAIN,d.metacubex.one,DIRECT
   - DOMAIN,metacubex.github.io/metacubexd,DIRECT
   - DOMAIN,metacubexd.pages.dev,DIRECT
+  - DOMAIN,cube.shiina-rimo.cafe,DIRECT
 
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,ip6-localhost,DIRECT
@@ -276,10 +249,6 @@ rules:
 
   - RULE-SET,ir-lite,DIRECT
   - RULE-SET,ircidr,DIRECT
-  - RULE-SET,arvancloud,DIRECT
-  - RULE-SET,derakcloud,DIRECT
-  - RULE-SET,iranserver,DIRECT
-  - RULE-SET,parspack,DIRECT
   - RULE-SET,irasn,DIRECT
   - RULE-SET,apps,DIRECT
   - RULE-SET,private,DIRECT,no-resolve
