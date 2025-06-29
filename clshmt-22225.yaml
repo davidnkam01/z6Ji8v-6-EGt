@@ -81,8 +81,6 @@ proxy-groups:
     type: fallback
     url: http://gstatic.com/generate_204
     interval: 300
-    hidden: true
-    lazy: true
     timeout: 5000
     max-failed-times: 5
     proxies:
@@ -95,7 +93,6 @@ proxy-groups:
     url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
-    lazy: true
     timeout: 5000
     max-failed-times: 5
     use:
@@ -106,7 +103,6 @@ proxy-groups:
     url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
-    lazy: true
     timeout: 5000
     max-failed-times: 5
     use:
@@ -118,7 +114,6 @@ proxy-groups:
     url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
-    lazy: true
     timeout: 5000
     max-failed-times: 5
     use:
