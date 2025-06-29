@@ -72,6 +72,7 @@ proxy-groups:
     type: select
     proxies:
       - FB-ALL
+      - LB-SS-ALL
       - agg
       - f2c
       - sm-hys
@@ -79,6 +80,17 @@ proxy-groups:
 
   - name: FB-ALL
     type: fallback
+    url: http://gstatic.com/generate_204
+    interval: 300
+    timeout: 5000
+    max-failed-times: 5
+    proxies:
+      - agg
+      - f2c
+      - sm-hys
+  
+  - name: LB-SS-ALL
+    type: load-balance
     url: http://gstatic.com/generate_204
     interval: 300
     timeout: 5000
