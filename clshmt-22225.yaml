@@ -45,7 +45,7 @@ dns:
     raw.githubusercontent.com: 8.8.8.8#DIRECT,
     time.cloudflare.com: 8.8.8.8#DIRECT,
     rule-set:ir-lite: 8.8.8.8#DIRECT,
-    rule-set:openai: 8.8.8.8
+    rule-set:openai: 8.8.8.8#DIRECT
   hosts:
     rule-set:malware: 127.0.0.1,
     rule-set:phishing: 127.0.0.1,
@@ -242,6 +242,7 @@ rules:
   - RULE-SET,ir-lite,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,irasn,DIRECT
+  - RULE-SET,openai,DIRECT
   - RULE-SET,private,DIRECT,no-resolve
 
   ####Reject-Rules####
