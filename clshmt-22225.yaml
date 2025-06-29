@@ -73,21 +73,11 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
-      - FB-ALL
       - agg
       - f2c
       - sm-hys
       - DIRECT
-
-  - name: FB-ALL
-    type: fallback
-    url: http://gstatic.com/generate_204
-    interval: 300
-    proxies:
-      - agg
-      - f2c
-      - sm-hys
-
+      
   - name: agg
     type: url-test
     url: http://gstatic.com/generate_204
