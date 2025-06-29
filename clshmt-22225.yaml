@@ -91,6 +91,7 @@ proxy-groups:
   
   - name: LB-SS-ALL
     type: load-balance
+    strategy: sticky-sessions
     url: http://gstatic.com/generate_204
     interval: 300
     timeout: 5000
