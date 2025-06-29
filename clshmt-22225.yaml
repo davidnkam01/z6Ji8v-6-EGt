@@ -8,9 +8,9 @@ disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: true
-"external-controller": 127.0.0.1:9090
-"external-ui-url": https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
-"external-ui": zashboard
+external-controller: 127.0.0.1:9090
+external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+external-ui: zashboard
 external-controller-cors:
   allow-origins:
     - "*"
