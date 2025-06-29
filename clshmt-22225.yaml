@@ -11,7 +11,7 @@ unified-delay: true
 global-client-fingerprint: random
 
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 
 tun:
