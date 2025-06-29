@@ -239,6 +239,7 @@ rules:
   - DOMAIN,metacubex.github.io/metacubexd,DIRECT
   - DOMAIN,metacubexd.pages.dev,DIRECT
   - DOMAIN,cube.shiina-rimo.cafe,DIRECT
+  - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,ip6-localhost,DIRECT
