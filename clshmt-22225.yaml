@@ -72,10 +72,21 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
+      - ⚡️Fastest
       - agg
       - f2c
       - sm-hys
       - DIRECT
+
+  - name: ⚡️Fastest
+    type: url-test
+    url: http://gstatic.com/generate_204
+    interval: 300
+    hidden: true
+    proxies:
+      - agg
+      - f2c
+      - sm-hys
 
   - name: agg
     type: url-test
