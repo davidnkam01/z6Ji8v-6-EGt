@@ -1,13 +1,22 @@
 mixed-port: 7890
 ipv6: true
-log-level: silent
+log-level: warning
 allow-lan: true
 mode: rule
 disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
-unified-delay: true
+unified-delay: false
 global-client-fingerprint: random
+geo-auto-update: true
+geo-update-interval: 168
+external-controller: 127.0.0.1:9090
+external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+external-ui: ui
+external-controller-cors:
+  allow-origins:
+    - '*'
+  allow-private-network: true
 
 profile:
   store-selected: true
@@ -35,9 +44,9 @@ dns:
   proxy-server-nameserver:
     - 8.8.8.8#DIRECT
   nameserver-policy:
-    raw.githubusercontent.com: 8.8.8.8#DIRECT,
-    time.cloudflare.com: 8.8.8.8#DIRECT,
-    rule-set:ir-lite: 78.157.42.100#DIRECT,
+    raw.githubusercontent.com: 1.1.1.1#DIRECT
+    time.cloudflare.com: 8.8.8.8#DIRECT
+    rule-set:ir-lite: 78.157.42.100#DIRECT
   hosts:
     rule-set:malware: 127.0.0.1,
     rule-set:phishing: 127.0.0.1,
@@ -45,7 +54,7 @@ dns:
     rule-set:category-ads-all: 127.0.0.1
 
 sniffer:
-  enable: false
+  enable: true
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -332,7 +341,7 @@ proxy-groups:
     proxies:
       - ⚡️Fastest
       - 📶First-Available
-      - 🇦🇿[04]WOW-AZ
+      - 🇦🇿 AUTO-AZ-DIALER
       - agg
       - f2c
       - sm-hys
@@ -342,7 +351,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     proxies:
       - agg
@@ -353,7 +361,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     proxies:
       - agg
@@ -364,7 +371,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     use:
       - 01agg
@@ -373,7 +379,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     use:
       - 02f2c1
@@ -383,12 +388,11 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     use:
       - 03sm-hys
 
-  - name: 🇦🇿[04]WOW-AZ
+  - name: 🇦🇿 AUTO-AZ-DIALER
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 30
@@ -403,7 +407,6 @@ proxy-groups:
       - AZ-DIALER-06
       - AZ-DIALER-07
       - AZ-DIALER-08
-
 proxy-providers:
 
   01agg:
@@ -538,6 +541,7 @@ rules:
   - RULE-SET,private,DIRECT,no-resolve
 
   ####Reject-Rules####
+  - NETWORK,udp,REJECT
   - RULE-SET,category-ads-all,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
