@@ -37,7 +37,7 @@ dns:
   enable: true
   ipv6: true
   respect-rules: true
-  listen: 0.0.0.0:1053
+  listen: 0.0.0.0:53
   use-system-hosts: false
   nameserver:
     - https://8.8.8.8/dns-query#Selector
@@ -85,8 +85,7 @@ proxies:
     mtu: 1280
     reserved: ZAnO
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
-    remote-dns-resolve: true
+    #dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
