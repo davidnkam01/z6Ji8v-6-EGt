@@ -456,91 +456,76 @@ proxy-providers:
     proxy: DIRECT
 
 rule-providers:
-  #####DIRECT-rules#####
-  ircidr:
-    type: http
-    format: text
-    behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.yaml"
-    path: ./ruleset/ircidr.yaml
-    proxy: DIRECT
-    interval: 86400
-
-  ir-lite:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.yaml"
-    path: ./ruleset/ir-lite.yaml
-    proxy: DIRECT
-    interval: 86400
-
   private:
     type: http
-    format: text
-    behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.yaml"
+    format: yaml
+    behavior: domain
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml
     path: ./ruleset/private.yaml
-    proxy: DIRECT
     interval: 86400
-
-  irasn:
+  private-cidr:
     type: http
-    format: text
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.yaml"
-    path: ./ruleset/irasn.yaml
-    proxy: DIRECT
+    format: yaml
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml
+    path: ./ruleset/private-cidr.yaml
     interval: 86400
-
   openai:
     type: http
-    format: text
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/openai.yaml"
+    format: yaml
+    behavior: domain
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml
     path: ./ruleset/openai.yaml
-    proxy: DIRECT
     interval: 86400
-  
-
-
-  ####Reject-Rules####
-  category-ads-all:
+  ir:
     type: http
     format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.yaml"
-    path: ./ruleset/category-ads-all.yaml
+    url: https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt
+    path: ./ruleset/ir.txt
+    interval: 86400
+  ir-cidr:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt
+    path: ./ruleset/ir-cidr.txt
     interval: 86400
   malware:
     type: http
     format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.yaml"
-    path: ./ruleset/malware.yaml
+    url: https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt
+    path: ./ruleset/malware.txt
     interval: 86400
   phishing:
     type: http
     format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.yaml"
-    path: ./ruleset/phishing.yaml
+    url: https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt
+    path: ./ruleset/phishing.txt
     interval: 86400
   cryptominers:
     type: http
     format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.yaml"
-    path: ./ruleset/cryptominers.yaml
+    url: https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt
+    path: ./ruleset/cryptominers.txt
     interval: 86400
-
+  category-ads-all:
+    type: http
+    format: text
+    behavior: domain
+    url: https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.txt
+    path: ./ruleset/category-ads-all.txt
+    interval: 86400
 rules:
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
   - RULE-SET,category-ads-all,REJECT
-  - RULE-SET,ircidr,DIRECT
-  - RULE-SET,private,DIRECT,no-resolve
-  - RULE-SET,ir-lite,DIRECT
-
+  - RULE-SET,private,DIRECT
+  - RULE-SET,ir,DIRECT
+  - RULE-SET,private-cidr,DIRECT,no-resolve
+  - RULE-SET,ir-cidr,DIRECT
   - MATCH,Selector
