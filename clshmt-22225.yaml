@@ -52,7 +52,7 @@ dns:
     rule-set:category-ads-all: 127.0.0.1
 
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -73,6 +73,8 @@ proxy-groups:
     type: select
     proxies:
       - ⚡️Fastest
+      - 📶First-Available
+      - wow-azr
       - agg
       - f2c
       - sm-hys
@@ -84,6 +86,19 @@ proxy-groups:
     interval: 300
     hidden: true
     proxies:
+      - 📶First-Available
+      - wow-azr
+      - agg
+      - f2c
+      - sm-hys
+
+  - name: 📶First-Available
+    type: url-test
+    url: http://gstatic.com/generate_204
+    interval: 300
+    hidden: true
+    proxies:
+      - wow-azr
       - agg
       - f2c
       - sm-hys
@@ -113,6 +128,14 @@ proxy-groups:
     use:
       - 03sm-hys
 
+  - name: wow-azr
+    type: url-test
+    url: http://gstatic.com/generate_204
+    interval: 300
+    hidden: true
+    use:
+      - 04wow-azr
+
 proxy-providers:
 
   01agg:
@@ -140,6 +163,13 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
     path: ./provide/03sm-hys.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  04wow-azr:
+    type: http
+    url: "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/clash-meta-wg.yml"
+    path: ./provide/03wow-azr.yaml
     interval: 3600
     proxy: DIRECT
 
