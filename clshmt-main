@@ -42,8 +42,8 @@ dns:
     - 9.9.9.9
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
-    time.cloudflare.com: 8.8.8.8#DIRECT
-    cp.cloudflare.com: 8.8.8.8#DIRECT
+    time.apple.com: 8.8.8.8#DIRECT
+    gstatic.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
 
 sniffer:
@@ -59,7 +59,7 @@ sniffer:
 
 ntp:
   enable: true
-  server: time.cloudflare.com
+  server: time.apple.com
   port: 123
   interval: 30
 proxies:
@@ -124,7 +124,7 @@ proxy-groups:
 
   - name: 🇦🇿-Baku
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
     proxies:
