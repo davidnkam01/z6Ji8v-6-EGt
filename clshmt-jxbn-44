@@ -344,25 +344,7 @@ proxy-groups:
       - agg
       - f2c
       - sm-hys
-      - 🇮🇷 AUTO-IR-ENTRY
-      - 🇦🇿 AUTO-AZ-DIALER
       - DIRECT
-      - AZ-DIALER-01
-      - AZ-DIALER-02
-      - AZ-DIALER-03
-      - AZ-DIALER-04
-      - AZ-DIALER-05
-      - AZ-DIALER-06
-      - AZ-DIALER-07
-      - AZ-DIALER-08
-      - IR-ENTRY-01
-      - IR-ENTRY-02
-      - IR-ENTRY-03
-      - IR-ENTRY-04
-      - IR-ENTRY-05
-      - IR-ENTRY-06
-      - IR-ENTRY-07
-      - IR-ENTRY-08
 
   - name: ⚡️Fastest
     type: url-test
@@ -409,20 +391,6 @@ proxy-groups:
     use:
       - 03sm-hys
 
-  - name: 🇮🇷 AUTO-IR-ENTRY
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 30
-    tolerance: 50
-    proxies:
-      - IR-ENTRY-01
-      - IR-ENTRY-02
-      - IR-ENTRY-03
-      - IR-ENTRY-04
-      - IR-ENTRY-05
-      - IR-ENTRY-06
-      - IR-ENTRY-07
-      - IR-ENTRY-08
   - name: 🇦🇿 AUTO-AZ-DIALER
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -437,6 +405,14 @@ proxy-groups:
       - AZ-DIALER-06
       - AZ-DIALER-07
       - AZ-DIALER-08
+      - IR-ENTRY-01
+      - IR-ENTRY-02
+      - IR-ENTRY-03
+      - IR-ENTRY-04
+      - IR-ENTRY-05
+      - IR-ENTRY-06
+      - IR-ENTRY-07
+      - IR-ENTRY-08
 proxy-providers:
 
   01agg:
