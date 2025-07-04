@@ -341,7 +341,7 @@ proxy-groups:
     proxies:
       - ⚡️Fastest
       - 📶First-Available
-      - 🇦🇿 AUTO-AZ-DIALER
+      - 🇦🇿[04]WOW-AZ
       - agg
       - f2c
       - sm-hys
@@ -353,6 +353,7 @@ proxy-groups:
     interval: 300
     hidden: true
     proxies:
+      - 🇦🇿[04]WOW-AZ
       - agg
       - f2c
       - sm-hys
@@ -363,6 +364,7 @@ proxy-groups:
     interval: 300
     hidden: true
     proxies:
+      - 🇦🇿[04]WOW-AZ
       - agg
       - f2c
       - sm-hys
@@ -392,7 +394,7 @@ proxy-groups:
     use:
       - 03sm-hys
 
-  - name: 🇦🇿 AUTO-AZ-DIALER
+  - name: 🇦🇿[04]WOW-AZ
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 30
@@ -406,6 +408,7 @@ proxy-groups:
       - AZ-DIALER-06
       - AZ-DIALER-07
       - AZ-DIALER-08
+
 proxy-providers:
 
   01agg:
