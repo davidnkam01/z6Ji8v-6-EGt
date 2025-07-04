@@ -86,7 +86,6 @@ proxy-groups:
     interval: 300
     hidden: true
     proxies:
-      - 📶First-Available
       - wow-azr
       - agg
       - f2c
