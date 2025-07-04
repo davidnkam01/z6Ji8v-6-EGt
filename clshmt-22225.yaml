@@ -131,7 +131,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    hidden: true
+    #hidden: true
     use:
       - 04wow-azr
 
