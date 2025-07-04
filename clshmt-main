@@ -55,7 +55,7 @@ dns:
     rule-set:ir-lite: 78.157.42.100#DIRECT
 
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -85,7 +85,8 @@ proxies:
     mtu: 1280
     reserved: ZAnO
     udp: true
-    #dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
