@@ -341,6 +341,7 @@ proxy-groups:
     proxies:
       - ⚡️Fastest
       - 📶First-Available
+      - 🇦🇿 AUTO-AZ-DIALER
       - agg
       - f2c
       - sm-hys
