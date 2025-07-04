@@ -1,22 +1,13 @@
 mixed-port: 7890
 ipv6: true
-log-level: warning
-allow-lan: true
+log-level: silent
+allow-lan: false
 mode: rule
 disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
-unified-delay: false
+unified-delay: true
 global-client-fingerprint: random
-geo-auto-update: true
-geo-update-interval: 168
-external-controller: 127.0.0.1:9090
-external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
-external-ui: ui
-external-controller-cors:
-  allow-origins:
-    - '*'
-  allow-private-network: true
 
 profile:
   store-selected: true
@@ -51,6 +42,7 @@ dns:
     - 9.9.9.9
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
+    gstatic.com: 8.8.8.8#DIRECT
     time.cloudflare.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
 
@@ -67,7 +59,7 @@ sniffer:
 
 ntp:
   enable: true
-  server: time.apple.com
+  server: time.cloudflare.com
   port: 123
   interval: 30
 proxies:
@@ -113,6 +105,7 @@ proxy-groups:
     interval: 300
     hidden: true
     proxies:
+      - 🇦🇿-Baku
       - agg
       - f2c
       - sm-hys
@@ -123,6 +116,7 @@ proxy-groups:
     interval: 300
     hidden: true
     proxies:
+      - 🇦🇿-Baku
       - agg
       - f2c
       - sm-hys
