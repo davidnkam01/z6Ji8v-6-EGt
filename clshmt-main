@@ -41,9 +41,6 @@ dns:
     - 8.8.4.4
     - 9.9.9.9
   nameserver-policy:
-    raw.githubusercontent.com: 8.8.8.8#DIRECT
-    gstatic.com: 8.8.8.8#DIRECT
-    time.cloudflare.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
 
 sniffer:
