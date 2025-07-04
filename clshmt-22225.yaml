@@ -448,13 +448,6 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
 
-  04wow-azr:
-    type: http
-    url: "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/clash-meta-wg.yml"
-    path: ./provide/03wow-azr.yaml
-    interval: 3600
-    proxy: DIRECT
-
 rule-providers:
   private:
     type: http
