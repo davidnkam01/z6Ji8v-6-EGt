@@ -7,7 +7,7 @@ mode: rule
 disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
-unified-delay: true
+unified-delay: false
 global-client-fingerprint: random
 
 profile:
@@ -20,7 +20,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-  stack: gvisor
+  stack: mixed
   auto-route: true
   strict-route: true
   auto-detect-interface: true
@@ -526,17 +526,6 @@ rule-providers:
     interval: 86400
 
 rules:
-  #####direct-rules#####
-  - DOMAIN,clash.razord.top,DIRECT
-  - DOMAIN,yacd.haishan.me,DIRECT
-  - DOMAIN,yacd.metacubex.one,DIRECT
-  - DOMAIN,clash.metacubex.one,DIRECT
-  - DOMAIN,d.metacubex.one,DIRECT
-  - DOMAIN,metacubex.github.io/metacubexd,DIRECT
-  - DOMAIN,metacubexd.pages.dev,DIRECT
-  - DOMAIN,cube.shiina-rimo.cafe,DIRECT
-  - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
-
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
