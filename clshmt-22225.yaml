@@ -9,6 +9,15 @@ keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: false
 global-client-fingerprint: random
+geo-auto-update: true
+geo-update-interval: 168
+external-controller: 127.0.0.1:9090
+external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+external-ui: ui
+external-controller-cors:
+  allow-origins:
+    - '*'
+  allow-private-network: true
 
 profile:
   store-selected: true
@@ -46,7 +55,7 @@ dns:
     - geosite:private
 
 sniffer:
-  enable: false
+  enable: true
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
