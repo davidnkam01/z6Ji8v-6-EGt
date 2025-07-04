@@ -35,14 +35,20 @@ tun:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
   ipv6: true
   respect-rules: true
+  listen: 0.0.0.0:1053
   use-system-hosts: false
   nameserver:
-    - 1.1.1.1#Selector
+    - https://8.8.8.8/dns-query#Selector
   proxy-server-nameserver:
     - 8.8.8.8#DIRECT
+  default-nameserver:
+    - 8.8.8.8
+  direct-nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 9.9.9.9
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
     time.apple.com: 8.8.8.8#DIRECT
