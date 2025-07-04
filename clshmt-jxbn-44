@@ -406,6 +406,36 @@ proxy-groups:
       - AZ-DIALER-06
       - AZ-DIALER-07
       - AZ-DIALER-08
+proxy-providers:
+
+  01agg:
+    type: http
+    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
+    path: ./provide/01agg.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  02f2c1:
+    type: http
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
+    path: ./provide/02f2c1.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  02f2c2:
+    type: http
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
+    path: ./provide/02f2c2.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  03sm-hys:
+    type: http
+    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
+    path: ./provide/03sm-hys.yaml
+    interval: 3600
+    proxy: DIRECT
+
 rule-providers:
   #####DIRECT-rules#####
   ircidr:
