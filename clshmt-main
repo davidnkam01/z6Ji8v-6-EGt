@@ -43,7 +43,6 @@ dns:
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
     time.apple.com: 8.8.8.8#DIRECT
-    gstatic.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
 
 sniffer:
