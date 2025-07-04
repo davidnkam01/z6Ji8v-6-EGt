@@ -75,7 +75,7 @@ proxies:
     type: wireguard
     ip: 172.16.0.2/32
     ipv6: 2606:4700:110:8836:f1c9:4393:9b37:3814/128
-    private-key: 8FSmaeqhktfMN1pGl38zde8kyYGowCEyr9W7Se12y2I=
+    private-key: 2JvYl2ncs/+4XvDAVa+/d2CUOzxVCYyTEkUSf1/X300=
     server: 188.114.98.224
     port: 908
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
@@ -83,6 +83,10 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     mtu: 1280
+    reserved: ZAnO
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    remote-dns-resolve: true
       
 proxy-groups:
   - name: Selector
