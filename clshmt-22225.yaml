@@ -38,9 +38,8 @@ dns:
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
     time.apple.com: 8.8.8.8#DIRECT
-    rule-set:ir:
+    rule-set:ir-lite:
       - 8.8.8.8#DIRECT
-    rule-set:openai: 178.22.122.100#DIRECT
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -538,22 +537,12 @@ rules:
   - DOMAIN,cube.shiina-rimo.cafe,DIRECT
   - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
-  - DOMAIN-SUFFIX,local,DIRECT
-  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
-  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
-  - DOMAIN-SUFFIX,lan,DIRECT
-  - DOMAIN-SUFFIX,localhost,DIRECT
-  - DOMAIN-SUFFIX,ir,DIRECT
-
-  - RULE-SET,ir-lite,DIRECT
-  - RULE-SET,ircidr,DIRECT
-  - RULE-SET,irasn,DIRECT
-  - RULE-SET,private,DIRECT,no-resolve
-
-  ####Reject-Rules####
-  - RULE-SET,category-ads-all,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
+  - RULE-SET,category-ads-all,REJECT
+  - RULE-SET,ircidr,DIRECT
+  - RULE-SET,private,DIRECT,no-resolve
+  - RULE-SET,ir-lite,DIRECT
 
   - MATCH,Selector
