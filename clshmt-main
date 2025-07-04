@@ -28,7 +28,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-  stack: mixed
+  stack: gvisor
   auto-route: true
   strict-route: true
   auto-detect-interface: true
