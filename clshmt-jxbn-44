@@ -406,14 +406,6 @@ proxy-groups:
       - AZ-DIALER-06
       - AZ-DIALER-07
       - AZ-DIALER-08
-      - IR-ENTRY-01
-      - IR-ENTRY-02
-      - IR-ENTRY-03
-      - IR-ENTRY-04
-      - IR-ENTRY-05
-      - IR-ENTRY-06
-      - IR-ENTRY-07
-      - IR-ENTRY-08
 proxy-providers:
 
   01agg:
