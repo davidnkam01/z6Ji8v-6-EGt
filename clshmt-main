@@ -44,9 +44,9 @@ dns:
   proxy-server-nameserver:
     - 8.8.8.8#DIRECT
   nameserver-policy:
-    raw.githubusercontent.com: 8.8.8.8#DIRECT,
-    time.cloudflare.com: 8.8.8.8#DIRECT,
-    rule-set:ir-lite: 78.157.42.100#DIRECT,
+    raw.githubusercontent.com: 1.1.1.1#DIRECT
+    time.cloudflare.com: 8.8.8.8#DIRECT
+    rule-set:ir-lite: 78.157.42.100#DIRECT
   hosts:
     rule-set:malware: 127.0.0.1,
     rule-set:phishing: 127.0.0.1,
