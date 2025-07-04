@@ -39,6 +39,7 @@ dns:
   direct-nameserver:
     - 8.8.8.8
     - 8.8.4.4
+    - 9.9.9.9
 
 sniffer:
   enable: false
