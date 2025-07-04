@@ -47,14 +47,13 @@ dns:
     raw.githubusercontent.com: 1.1.1.1#DIRECT
     time.cloudflare.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
-  hosts:
-    rule-set:malware: 127.0.0.1,
-    rule-set:phishing: 127.0.0.1,
-    rule-set:cryptominers: 127.0.0.1,
-    rule-set:category-ads-all: 127.0.0.1
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - geosite:private
 
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
