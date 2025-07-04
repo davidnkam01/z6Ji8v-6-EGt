@@ -40,8 +40,6 @@ dns:
     - 8.8.8.8
     - 8.8.4.4
     - 9.9.9.9
-  nameserver-policy:
-    rule-set:ir-lite: 78.157.42.100#DIRECT
 
 sniffer:
   enable: true
@@ -88,39 +86,15 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
-      - ⚡️Fastest
-      - 📶First-Available
       - 🇦🇿-Baku
       - agg
       - f2c
       - sm-hys
       - DIRECT
 
-  - name: ⚡️Fastest
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    proxies:
-      - 🇦🇿-Baku
-      - agg
-      - f2c
-      - sm-hys
-
-  - name: 📶First-Available
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    proxies:
-      - 🇦🇿-Baku
-      - agg
-      - f2c
-      - sm-hys
-
   - name: agg
     type: url-test
-    url: http://gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     hidden: true
     use:
@@ -128,7 +102,7 @@ proxy-groups:
 
   - name: f2c
     type: url-test
-    url: http://gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     hidden: true
     use:
@@ -137,7 +111,7 @@ proxy-groups:
 
   - name: sm-hys
     type: url-test
-    url: http://gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     hidden: true
     use:
@@ -145,7 +119,7 @@ proxy-groups:
 
   - name: 🇦🇿-Baku
     type: url-test
-    url: http://gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     hidden: true
     proxies:
