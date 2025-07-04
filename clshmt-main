@@ -334,6 +334,19 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+
+  - name: Baku
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:8836:f1c9:4393:9b37:3814/128
+    private-key: 8FSmaeqhktfMN1pGl38zde8kyYGowCEyr9W7Se12y2I=
+    server: 188.114.98.224
+    port: 908
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
       
 proxy-groups:
   - name: Selector
@@ -342,6 +355,7 @@ proxy-groups:
       - ⚡️Fastest
       - 📶First-Available
       - 🇦🇿 AUTO-AZ-DIALER
+      - Baku
       - agg
       - f2c
       - sm-hys
