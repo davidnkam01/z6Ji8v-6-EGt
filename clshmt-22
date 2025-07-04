@@ -17,7 +17,7 @@ external-controller-cors:
   allow-origins:
     - '*'
   allow-private-network: true
-  
+
 profile:
   store-selected: true
   store-fake-ip: true
@@ -54,7 +54,7 @@ dns:
     rule-set:category-ads-all: 127.0.0.1
 
 sniffer:
-  enable: false
+  enable: true
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -351,7 +351,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     proxies:
       - 🇦🇿[04]WOW-AZ
@@ -363,7 +362,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     proxies:
       - 🇦🇿[04]WOW-AZ
@@ -375,7 +373,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     use:
       - 01agg
@@ -384,7 +381,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     use:
       - 02f2c1
@@ -394,7 +390,6 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     hidden: true
     use:
       - 03sm-hys
@@ -404,7 +399,6 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 30
     tolerance: 50
-    hidden: true
     proxies:
       - AZ-DIALER-01
       - AZ-DIALER-02
