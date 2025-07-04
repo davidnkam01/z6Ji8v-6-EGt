@@ -55,7 +55,7 @@ dns:
     rule-set:ir-lite: 78.157.42.100#DIRECT
 
 sniffer:
-  enable: false
+  enable: true
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -294,7 +294,6 @@ rules:
   - RULE-SET,private,DIRECT,no-resolve
 
   ####Reject-Rules####
-  - NETWORK,udp,REJECT
   - RULE-SET,category-ads-all,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
