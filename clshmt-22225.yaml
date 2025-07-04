@@ -1,14 +1,23 @@
 mixed-port: 7890
 ipv6: true
-log-level: silent
+log-level: warning
 allow-lan: true
 mode: rule
 disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
-unified-delay: true
+unified-delay: false
 global-client-fingerprint: random
-
+geo-auto-update: true
+geo-update-interval: 168
+external-controller: 127.0.0.1:9090
+external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+external-ui: ui
+external-controller-cors:
+  allow-origins:
+    - '*'
+  allow-private-network: true
+  
 profile:
   store-selected: true
   store-fake-ip: true
