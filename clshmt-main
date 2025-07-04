@@ -40,17 +40,19 @@ dns:
   listen: 0.0.0.0:1053
   use-system-hosts: false
   nameserver:
-    - 1.1.1.1#Selector
+    - https://8.8.8.8/dns-query#Selector
   proxy-server-nameserver:
     - 8.8.8.8#DIRECT
+  default-nameserver:
+    - 8.8.8.8
+  direct-nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 9.9.9.9
   nameserver-policy:
-    raw.githubusercontent.com: 1.1.1.1#DIRECT
+    raw.githubusercontent.com: 8.8.8.8#DIRECT
     time.cloudflare.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - geosite:private
 
 sniffer:
   enable: false
