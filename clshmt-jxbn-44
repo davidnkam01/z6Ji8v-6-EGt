@@ -1,4 +1,4 @@
-mixed-port: 789
+mixed-port: 7890
 ipv6: true
 log-level: warning
 allow-lan: true
