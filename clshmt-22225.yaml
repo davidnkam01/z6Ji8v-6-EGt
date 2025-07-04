@@ -1,22 +1,13 @@
 mixed-port: 7890
 ipv6: true
-log-level: warning
+log-level: silent
 allow-lan: true
 mode: rule
 disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
-unified-delay: false
+unified-delay: true
 global-client-fingerprint: random
-geo-auto-update: true
-geo-update-interval: 168
-external-controller: 127.0.0.1:9090
-external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
-external-ui: ui
-external-controller-cors:
-  allow-origins:
-    - '*'
-  allow-private-network: true
 
 profile:
   store-selected: true
@@ -54,7 +45,7 @@ dns:
     rule-set:category-ads-all: 127.0.0.1
 
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -351,6 +342,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    tolerance: 50
     hidden: true
     proxies:
       - 🇦🇿[04]WOW-AZ
@@ -362,6 +354,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    tolerance: 50
     hidden: true
     proxies:
       - 🇦🇿[04]WOW-AZ
@@ -373,6 +366,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    tolerance: 50
     hidden: true
     use:
       - 01agg
@@ -381,6 +375,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    tolerance: 50
     hidden: true
     use:
       - 02f2c1
@@ -390,6 +385,7 @@ proxy-groups:
     type: url-test
     url: http://gstatic.com/generate_204
     interval: 300
+    tolerance: 50
     hidden: true
     use:
       - 03sm-hys
@@ -399,6 +395,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 30
     tolerance: 50
+    hidden: true
     proxies:
       - AZ-DIALER-01
       - AZ-DIALER-02
