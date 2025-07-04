@@ -345,7 +345,6 @@ proxy-groups:
     tolerance: 50
     hidden: true
     proxies:
-      - 🇦🇿[04]WOW-AZ
       - agg
       - f2c
       - sm-hys
@@ -357,7 +356,6 @@ proxy-groups:
     tolerance: 50
     hidden: true
     proxies:
-      - 🇦🇿[04]WOW-AZ
       - agg
       - f2c
       - sm-hys
