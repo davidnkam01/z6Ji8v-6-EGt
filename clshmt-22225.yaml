@@ -1,13 +1,15 @@
+# Generated configs for clash-meta with WireGuard proxies that have amnesia values.
+# Generated on: 2025-06-24T08:48:58
+
 mixed-port: 7890
 ipv6: true
-log-level: warning
 allow-lan: true
 mode: rule
+log-level: warning
 disable-keep-alive: false
-keep-alive-interval: 15
 keep-alive-idle: 10
+keep-alive-interval: 15
 unified-delay: false
-global-client-fingerprint: random
 geo-auto-update: true
 geo-update-interval: 168
 external-controller: 127.0.0.1:9090
@@ -17,22 +19,9 @@ external-controller-cors:
   allow-origins:
     - '*'
   allow-private-network: true
-
 profile:
   store-selected: true
   store-fake-ip: true
-
-tun:
-  enable: true
-  mtu: 9000
-  dns-hijack:
-    - any:53
-    - tcp://any:53
-  stack: mixed
-  auto-route: true
-  strict-route: true
-  auto-detect-interface: true
-
 dns:
   enable: true
   listen: 0.0.0.0:1053
@@ -48,11 +37,21 @@ dns:
     time.apple.com: 8.8.8.8#DIRECT
     rule-set:ir:
       - 8.8.8.8#DIRECT
+    rule-set:openai: 178.22.122.100#DIRECT
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - geosite:private
-
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  strict-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  mtu: 9000
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -60,15 +59,22 @@ sniffer:
   override-destination: false
   sniff:
     HTTP:
-      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
+      ports:
+        - 80
+        - 8080
+        - 8880
+        - 2052
+        - 2082
+        - 2086
+        - 2095
     TLS:
-      ports: [443, 8443, 2053, 2083, 2087, 2096]
-
-ntp:
-  enable: true
-  server: time.apple.com
-  port: 123
-  interval: 30
+      ports:
+        - 443
+        - 8443
+        - 2053
+        - 2083
+        - 2087
+        - 2096
 proxies:
   - name: AZ-DIALER-01
     type: wireguard
@@ -334,72 +340,13 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
-      
 proxy-groups:
-  - name: Selector
+  - name: 🔰 PROXIES
     type: select
     proxies:
-      - ⚡️Fastest
-      - 📶First-Available
-      - wow-azr
-      - agg
-      - f2c
-      - sm-hys
+      - 🇮🇷 AUTO-IR-ENTRY
+      - 🇦🇿 AUTO-AZ-DIALER
       - DIRECT
-
-  - name: ⚡️Fastest
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    proxies:
-      - wow-azr
-      - agg
-      - f2c
-      - sm-hys
-
-  - name: 📶First-Available
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    proxies:
-      - wow-azr
-      - agg
-      - f2c
-      - sm-hys
-
-  - name: agg
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    use:
-      - 01agg
-
-  - name: f2c
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    use:
-      - 02f2c1
-      - 02f2c2
-
-  - name: sm-hys
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    hidden: true
-    use:
-      - 03sm-hys
-
-  - name: wow-azr
-    type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
-    #hidden: true
-    proxies:
       - AZ-DIALER-01
       - AZ-DIALER-02
       - AZ-DIALER-03
@@ -416,37 +363,34 @@ proxy-groups:
       - IR-ENTRY-06
       - IR-ENTRY-07
       - IR-ENTRY-08
-
-proxy-providers:
-
-  01agg:
-    type: http
-    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
-    path: ./provide/01agg.yaml
-    interval: 3600
-    proxy: DIRECT
-
-  02f2c1:
-    type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
-    path: ./provide/02f2c1.yaml
-    interval: 3600
-    proxy: DIRECT
-
-  02f2c2:
-    type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
-    path: ./provide/02f2c2.yaml
-    interval: 3600
-    proxy: DIRECT
-
-  03sm-hys:
-    type: http
-    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
-    path: ./provide/03sm-hys.yaml
-    interval: 3600
-    proxy: DIRECT
-
+  - name: 🇮🇷 AUTO-IR-ENTRY
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 30
+    tolerance: 50
+    proxies:
+      - IR-ENTRY-01
+      - IR-ENTRY-02
+      - IR-ENTRY-03
+      - IR-ENTRY-04
+      - IR-ENTRY-05
+      - IR-ENTRY-06
+      - IR-ENTRY-07
+      - IR-ENTRY-08
+  - name: 🇦🇿 AUTO-AZ-DIALER
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 30
+    tolerance: 50
+    proxies:
+      - AZ-DIALER-01
+      - AZ-DIALER-02
+      - AZ-DIALER-03
+      - AZ-DIALER-04
+      - AZ-DIALER-05
+      - AZ-DIALER-06
+      - AZ-DIALER-07
+      - AZ-DIALER-08
 rule-providers:
   private:
     type: http
@@ -518,6 +462,12 @@ rules:
   - RULE-SET,category-ads-all,REJECT
   - RULE-SET,private,DIRECT
   - RULE-SET,ir,DIRECT
+  - RULE-SET,openai,DIRECT
   - RULE-SET,private-cidr,DIRECT,no-resolve
   - RULE-SET,ir-cidr,DIRECT
-  - MATCH,Selector
+  - MATCH,🔰 PROXIES
+ntp:
+  enable: true
+  server: time.apple.com
+  port: 123
+  interval: 30
