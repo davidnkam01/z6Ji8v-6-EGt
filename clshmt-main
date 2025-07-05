@@ -93,7 +93,7 @@ proxies:
     ip: 172.16.0.2/32
     ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
     private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
-    server: [0:0:0:0:0:ffff:bc72:6300]
+    server: 0:0:0:0:0:ffff:bc72:6300
     port: 934
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
@@ -169,7 +169,7 @@ proxy-groups:
 
   - name: agg
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
     use:
@@ -177,7 +177,7 @@ proxy-groups:
 
   - name: f2c
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
     use:
@@ -186,7 +186,7 @@ proxy-groups:
 
   - name: sm-hys
     type: url-test
-    url: http://cp.cloudflare.com/generate_204
+    url: http://gstatic.com/generate_204
     interval: 300
     hidden: true
     use:
