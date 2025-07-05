@@ -61,7 +61,9 @@ ntp:
   server: time.apple.com
   port: 123
   interval: 30
+
 proxies:
+
   - name: Baku-01
     type: wireguard
     ip: 172.16.0.2/32
@@ -75,6 +77,75 @@ proxies:
       - ::/0
     mtu: 1280
     reserved: ZAnO
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+  
+  - name: Baku-02
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
+    private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
+    server: [0:0:0:0:0:ffff:bc72:6300]
+    port: 934
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+
+  - name: Baku-03
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
+    private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
+    server: 188.114.99.0
+    port: 934
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+
+  - name: Baku-04
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
+    private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
+    server: 188.114.96.230
+    port: 934
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
