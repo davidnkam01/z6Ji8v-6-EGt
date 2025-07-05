@@ -199,6 +199,9 @@ proxy-groups:
     hidden: true
     proxies:
       - Baku-01
+      - Baku-02
+      - Baku-03
+      - Baku-04
 
 proxy-providers:
 
