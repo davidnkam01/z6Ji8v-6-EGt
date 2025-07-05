@@ -63,7 +63,7 @@ ntp:
   interval: 30
 
 proxies:
-
+#WoW#
   - name: Baku-01
     type: wireguard
     ip: 172.16.0.2/32
