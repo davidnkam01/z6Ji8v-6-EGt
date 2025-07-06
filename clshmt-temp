@@ -215,16 +215,22 @@ proxy-groups:
 
   - name: agg
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://cp.cloudflare.com/generate_204 
+    interval: 60
+    timeout: 30000
+    tolerance: 400
+    lazy: true
     hidden: true
     use:
       - 01agg
 
   - name: f2c
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://cp.cloudflare.com/generate_204 
+    interval: 60
+    timeout: 30000
+    tolerance: 400
+    lazy: true
     hidden: true
     use:
       - 02f2c1
@@ -232,16 +238,22 @@ proxy-groups:
 
   - name: sm-hys
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://cp.cloudflare.com/generate_204 
+    interval: 60
+    timeout: 30000
+    tolerance: 400
+    lazy: true
     hidden: true
     use:
       - 03sm-hys
 
   - name: 🇦🇿-Baku
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://cp.cloudflare.com/generate_204 
+    interval: 60
+    timeout: 30000
+    tolerance: 400
+    lazy: true
     hidden: true
     proxies:
       - Baku-01
