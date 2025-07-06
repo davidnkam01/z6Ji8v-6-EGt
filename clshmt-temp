@@ -13,7 +13,7 @@ geo-auto-update: true
 geo-update-interval: 168 
 secret: '' 
 bind-address: '*' 
-unified-delay: false 
+unified-delay: true
 disable-keep-alive: false 
 keep-alive-idle: 30 
 keep-alive-interval: 30 
