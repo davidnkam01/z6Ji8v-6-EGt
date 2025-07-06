@@ -24,7 +24,6 @@ profile:
 
 tun:
   enable: true
-  mtu: 1280
   dns-hijack:
     - any:53
     - tcp://any:53
