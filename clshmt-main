@@ -20,7 +20,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-  stack: gvisor
+  stack: mixed
   auto-route: true
   strict-route: true
   auto-detect-interface: true
@@ -150,7 +150,7 @@ proxy-groups:
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
     timeout: 120000 
-    tolerance: 500
+    tolerance: 30
     max-failed-times: 6
     hidden: true
     use:
@@ -162,7 +162,7 @@ proxy-groups:
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
     timeout: 120000 
-    tolerance: 500 
+    tolerance: 30 
     max-failed-times: 6
     hidden: true
     use:
