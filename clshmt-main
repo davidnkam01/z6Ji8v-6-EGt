@@ -106,8 +106,8 @@ proxies:
     ip-version: dual
     ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
     private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
-    server: 0:0:0:0:0:ffff:bc72:6300
-    port: 934
+    server: 188.114.98.224
+    port: 894
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
@@ -130,8 +130,8 @@ proxies:
     ip-version: dual
     ipv6: 2606:4700:110:89b4:8fd1:c3bf:403e:17df/128
     private-key: WGeKhNmWUWcdND0L1erlQCs8tH/MgrXMxoSdLsns8lM=
-    server: 188.114.99.0
-    port: 934
+    server: 188.114.98.224
+    port: 1074
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
@@ -155,8 +155,8 @@ proxies:
     ip-version: dual
     ipv6: 2606:4700:110:88e0:428a:dfe:594:370d/128
     private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
-    server: 188.114.96.230
-    port: 934
+    server: 188.114.98.224
+    port: 2408
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
