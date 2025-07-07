@@ -7,7 +7,9 @@ disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: true
-global-client-fingerprint: random
+global-client-fingerprint: chrome
+find-process: strict
+tcp-concurrent: true
 geo-auto-update: true
 geo-update-interval: 168
 external-controller: 127.0.0.1:9090
