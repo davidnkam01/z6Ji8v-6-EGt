@@ -40,7 +40,7 @@ dns:
   listen: 0.0.0.0:1053
   use-system-hosts: false
   nameserver:
-    - https://1.1.1.1/dns-query#Selector
+    - https://8.8.8.8/dns-query#Selector
   proxy-server-nameserver:
     - 8.8.8.8#DIRECT
   default-nameserver:
@@ -53,7 +53,7 @@ dns:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
     time.apple.com: 8.8.8.8#DIRECT
     rule-set:ir-lite: 78.157.42.100#DIRECT
-    
+
 sniffer:
   enable: false
   force-dns-mapping: true
