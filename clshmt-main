@@ -1,105 +1,97 @@
-global-client-fingerprint: chrome 
 mixed-port: 7890
-socks-port: 7891 
-redir-port: 7892
-tproxy-port: 7894 
-allow-lan: true 
-tcp-concurrent: true 
-enable-process: true 
-find-process-mode: strict 
-ipv6: true 
-log-level: debug 
-geo-auto-update: true 
-geo-update-interval: 168 
-secret: '' 
-bind-address: '*' 
+allow-lan: false
+mode: rule
+log-level: error
+ipv6: false
+enable-process: true
+find-process-mode: strict
+tcp-concurrent: true
 unified-delay: true
-disable-keep-alive: false 
-keep-alive-idle: 30 
-keep-alive-interval: 30 
-
+global-client-fingerprint: random
+keep-alive-interval: 15
 profile:
   store-selected: true
   store-fake-ip: true
-
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-system-hosts: true
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - +.localhost
+    - +.localdomain
+    - +.ip6-localhost
+    - +.ip6-loopback
+    - "*.example"
+    - "*.invalid"
+    - "*.test"
+    - "*.home.arpa"
+    - time.nist.gov
+    - time.windows.com
+    - time.android.com
+    - pool.ntp.org
+  default-nameserver:
+    - 8.8.8.8
+  nameserver:
+    - https://8.8.8.8/dns-query
+    - https://146.112.41.2/dns-query
+    - https://9.9.9.10/dns-query
+  proxy-server-nameserver:
+    - https://8.8.8.8/dns-query
+    - https://146.112.41.2/dns-query
+    - https://9.9.9.10/dns-query
+  fallback:
+    - https://8.8.8.8/dns-query
+    - https://146.112.41.2/dns-query
+    - https://9.9.9.10/dns-query
+  fallback-filter:
+    geoip: false
+    geoip-code: IR
+    ipcidr:
+      - 0.0.0.0/32
+      - 240.0.0.0/4
+    domain:
+      - +.cloudflare.com
+      - +.recaptcha.net
+      - +.google.com
+      - +.microsoft.com
+      - +.youtube.com
 tun:
   enable: true
+  stack: system
   dns-hijack:
     - any:53
-    - tcp://any:53
-  stack: gvisor
   auto-route: true
-  strict-route: true
   auto-detect-interface: true
-
-dns: 
-  enable: true 
-  ipv6: true 
-  respect-rules: false 
-  prefer-h3: true 
-  cache-algorithm: arc    
-  use-system-hosts: true 
-  use-host: true 
-  listen: 0.0.0.0:53 
-  enhanced-mode: fake-ip 
-  fake-ip-filter-mode: blacklist 
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter: 
-    - '*.lan'              
-    - '*.localdomain'      
-    - '*.invalid'          
-    - '*.localhost'        
-    - '*.test'             
-    - '*.local'            
-    - '*.home.arpa' 
-    - 'time.*.com' 
-    - 'ntp.*.com' 
-    - '*.ir' 
-  default-nameserver: 
-    - 8.8.8.8 
-    - 8.8.4.4 
-    - 1.0.0.1 
-    - 1.1.1.1 
-    - 9.9.9.9 
-    - 9.9.9.11 
-    - 9.9.9.10 
-    - 94.140.14.15 
-    - 94.140.15.15 
-    - 223.5.5.5 
-    - 77.88.8.8
-  nameserver:
-    - 'https://dns.nextdns.io/15441b'
-    - 'tls://15441b.dns.nextdns.io'
-    - '2a07:a8c0::15:441b'
-    - '2a07:a8c1::15:441b'
-  direct-nameserver:
-    - '78.157.42.100'
-    - '78.157.42.101' 
-  proxy-server-nameserver: 
-    - '2606:4700:4700::1111' 
-    - '2606:4700:4700::1001' 
-    - '2001:4860:4860::8888' 
-    - '2001:4860:4860::8844' 
-    - '1.1.1.1' 
-    - '8.8.8.8' 
-    - '8.8.4.4' 
-    - '9.9.9.9' 
-    - '223.5.5.5' 
-    - '77.88.8.8' 
-    - '2400:3200::1' 
-    - '2a02:6b8::feed:0ff' 
-    - '2620:fe::fe'
-
+  strict-route: true
+  mtu: 9000
+  device: Mihomo
 sniffer:
   enable: true
-  force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
   sniff:
-    HTTP:
-      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
     TLS:
-      ports: [443, 8443, 2053, 2083, 2087, 2096]
+      ports:
+        - 443
+        - 8443
+    QUIC:
+      ports:
+        - 443
+        - 8443
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+  sniffing:
+    - tls
+    - http
+    - quic
 
 ntp:
   enable: true
