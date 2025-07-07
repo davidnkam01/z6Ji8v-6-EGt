@@ -29,6 +29,8 @@ dns:
   ipv6: true
   respect-rules: true
   listen: 0.0.0.0:53
+  prefer-h3: true 
+  cache-algorithm: arc   
   use-system-hosts: false
   nameserver:
     - https://8.8.8.8/dns-query#Selector
@@ -169,16 +171,22 @@ proxy-groups:
 
   - name: agg
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500 
+    max-failed-times: 6
     hidden: true
     use:
       - 01agg
 
   - name: f2c
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500 
+    max-failed-times: 6
     hidden: true
     use:
       - 02f2c1
@@ -186,16 +194,22 @@ proxy-groups:
 
   - name: sm-hys
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500 
+    max-failed-times: 6
     hidden: true
     use:
       - 03sm-hys
 
   - name: 🇦🇿-Baku
     type: url-test
-    url: http://gstatic.com/generate_204
-    interval: 300
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500 
+    max-failed-times: 6
     hidden: true
     proxies:
       - Baku-01
