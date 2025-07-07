@@ -55,7 +55,7 @@ dns:
     rule-set:ir-lite: 78.157.42.100#DIRECT
     
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
