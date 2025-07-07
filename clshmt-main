@@ -48,9 +48,6 @@ dns:
   direct-nameserver:
     - 8.8.8.8
     - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-    - 9.9.9.9
   nameserver-policy:
     raw.githubusercontent.com: 8.8.8.8#DIRECT
     time.apple.com: 8.8.8.8#DIRECT
