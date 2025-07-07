@@ -1,97 +1,82 @@
 mixed-port: 7890
-allow-lan: false
+ipv6: true
+log-level: warning
+allow-lan: true
 mode: rule
-log-level: error
-ipv6: false
-enable-process: true
-find-process-mode: strict
-tcp-concurrent: true
-unified-delay: true
-global-client-fingerprint: random
+disable-keep-alive: false
 keep-alive-interval: 15
+keep-alive-idle: 10
+unified-delay: false
+global-client-fingerprint: random
+geo-auto-update: true
+geo-update-interval: 168
+external-controller: 127.0.0.1:9090
+external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+external-ui: ui
+external-controller-cors:
+  allow-origins:
+    - '*'
+  allow-private-network: true
+
 profile:
   store-selected: true
   store-fake-ip: true
-dns:
-  enable: true
-  listen: 0.0.0.0:53
-  ipv6: false
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  use-system-hosts: true
-  fake-ip-filter:
-    - +.lan
-    - +.local
-    - +.localhost
-    - +.localdomain
-    - +.ip6-localhost
-    - +.ip6-loopback
-    - "*.example"
-    - "*.invalid"
-    - "*.test"
-    - "*.home.arpa"
-    - time.nist.gov
-    - time.windows.com
-    - time.android.com
-    - pool.ntp.org
-  default-nameserver:
-    - 8.8.8.8
-  nameserver:
-    - https://8.8.8.8/dns-query
-    - https://146.112.41.2/dns-query
-    - https://9.9.9.10/dns-query
-  proxy-server-nameserver:
-    - https://8.8.8.8/dns-query
-    - https://146.112.41.2/dns-query
-    - https://9.9.9.10/dns-query
-  fallback:
-    - https://8.8.8.8/dns-query
-    - https://146.112.41.2/dns-query
-    - https://9.9.9.10/dns-query
-  fallback-filter:
-    geoip: false
-    geoip-code: IR
-    ipcidr:
-      - 0.0.0.0/32
-      - 240.0.0.0/4
-    domain:
-      - +.cloudflare.com
-      - +.recaptcha.net
-      - +.google.com
-      - +.microsoft.com
-      - +.youtube.com
+
 tun:
   enable: true
-  stack: system
+  mtu: 9000
   dns-hijack:
     - any:53
+    - tcp://any:53
+  stack: gvisor
   auto-route: true
-  auto-detect-interface: true
   strict-route: true
-  mtu: 9000
-  device: Mihomo
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  ipv6: true
+  respect-rules: true
+  listen: 0.0.0.0:1053
+  use-system-hosts: false
+  nameserver:
+    - https://1.1.1.1/dns-query#Selector
+  proxy-server-nameserver:
+    - 8.8.8.8#DIRECT
+  default-nameserver:
+    - 8.8.8.8
+  direct-nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 78.157.42.100
+  nameserver-policy:
+    raw.githubusercontent.com: 8.8.8.8#DIRECT
+    time.apple.com: 8.8.8.8#DIRECT
+    rule-set:ir-lite: 78.157.42.100#DIRECT
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: 
+    - '*.lan'              
+    - '*.localdomain'      
+    - '*.invalid'          
+    - '*.localhost'        
+    - '*.test'             
+    - '*.local'            
+    - '*.home.arpa' 
+    - 'time.*.com' 
+    - 'ntp.*.com' 
+    - '*.ir' 
+
 sniffer:
   enable: true
+  force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
   sniff:
-    TLS:
-      ports:
-        - 443
-        - 8443
-    QUIC:
-      ports:
-        - 443
-        - 8443
     HTTP:
-      ports:
-        - 80
-        - 8080-8880
-      override-destination: true
-  sniffing:
-    - tls
-    - http
-    - quic
+      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
+    TLS:
+      ports: [443, 8443, 2053, 2083, 2087, 2096]
 
 ntp:
   enable: true
@@ -104,6 +89,7 @@ proxies:
   - name: Baku-01
     type: wireguard
     ip: 172.16.0.2/32
+    ip-version: dual
     ipv6: 2606:4700:110:8836:f1c9:4393:9b37:3814/128
     private-key: 2JvYl2ncs/+4XvDAVa+/d2CUOzxVCYyTEkUSf1/X300=
     server: 188.114.98.224
@@ -112,6 +98,7 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
+    mtu: 1280
     reserved: ZAnO
     udp: true
     amnezia-wg-option:
@@ -125,6 +112,7 @@ proxies:
   - name: Baku-02
     type: wireguard
     ip: 172.16.0.2/32
+    ip-version: dual
     ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
     private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
     server: 0:0:0:0:0:ffff:bc72:6300
@@ -133,6 +121,7 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
+    mtu: 1280
     udp: true
     amnezia-wg-option:
       jc: '4'
@@ -145,15 +134,18 @@ proxies:
   - name: Baku-03
     type: wireguard
     ip: 172.16.0.2/32
-    ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
-    private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
+    ip-version: dual
+    ipv6: 2606:4700:110:89b4:8fd1:c3bf:403e:17df/128
+    private-key: WGeKhNmWUWcdND0L1erlQCs8tH/MgrXMxoSdLsns8lM=
     server: 188.114.99.0
     port: 934
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
+    mtu: 1280
     udp: true
+    reserved: uJZF
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -165,17 +157,18 @@ proxies:
   - name: Baku-04
     type: wireguard
     ip: 172.16.0.2/32
-    ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
-    private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
+    ip-version: dual
+    ipv6: 2606:4700:110:88e0:428a:dfe:594:370d/128
+    private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
     server: 188.114.96.230
     port: 934
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
+    mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
-    remote-dns-resolve: true
+    reserved: mM3N
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -363,17 +356,10 @@ rules:
   - DOMAIN,cube.shiina-rimo.cafe,DIRECT
   - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
-  - DOMAIN-SUFFIX,local,DIRECT
-  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
-  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
-  - DOMAIN-SUFFIX,lan,DIRECT
-  - DOMAIN-SUFFIX,localhost,DIRECT
-  - DOMAIN-SUFFIX,ir,DIRECT
-
   - RULE-SET,ir-lite,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,irasn,DIRECT
-  - RULE-SET,private,DIRECT,no-resolve
+  - GEOIP,lan,DIRECT,no-resolve
 
   ####Reject-Rules####
   - RULE-SET,category-ads-all,REJECT
