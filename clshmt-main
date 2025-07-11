@@ -33,30 +33,28 @@ dns:
   listen: 0.0.0.0:53
   use-system-hosts: false
   nameserver:
-    - 94.140.14.14
-    - 94.140.15.15
-    - https://dns.adguard-dns.com/dns-query
-    - tls://94.140.14.14
-    - tls://94.140.15.15
-    - tls://dns.adguard-dns.com
-    - quic://94.140.14.14
-    - quic://94.140.15.15
-    - quic://dns.adguard-dns.com
-    - 2a10:50c0::ad1:ff 
-    - 2a10:50c0::ad2:ff
+    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
+    - tls://8.8.8.8
+    - tls://8.8.4.4
+    - '8.8.8.8' 
+    - '8.8.4.4'
+    - '2001:4860:4860::8888' 
+    - '2001:4860:4860::8844'
   proxy-server-nameserver:
-    - 94.140.14.14
-    - 94.140.15.15
-    - 2a10:50c0::ad1:ff 
-    - 2a10:50c0::ad2:ff
+    - '8.8.8.8' 
+    - '8.8.4.4' 
+    - '2001:4860:4860::8888' 
+    - '2001:4860:4860::8844' 
   default-nameserver:
-    - 94.140.14.14
-    - 94.140.15.15
+    - 8.8.8.8
+    - 8.8.4.4 
+
   direct-nameserver:
-    - 94.140.14.14
-    - 94.140.15.15
-    - 2a10:50c0::ad1:ff 
-    - 2a10:50c0::ad2:ff
+    - 8.8.8.8
+    - 8.8.4.4 
+    - '2001:4860:4860::8888' 
+    - '2001:4860:4860::8844' 
 
 sniffer:
   enable: true
@@ -91,7 +89,7 @@ proxies:
     mtu: 1280
     reserved: ZAnO
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 8.8.8.8, 8.8.4.4 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -114,7 +112,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 8.8.8.8, 8.8.4.4 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -138,7 +136,7 @@ proxies:
     mtu: 1280
     udp: true
     reserved: uJZF
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 8.8.8.8, 8.8.4.4 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -162,7 +160,7 @@ proxies:
     mtu: 1280
     udp: true
     reserved: mM3N
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 8.8.8.8, 8.8.4.4 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
