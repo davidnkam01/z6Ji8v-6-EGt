@@ -20,6 +20,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
+    - udp://any:53
   stack: mixed
   auto-route: true
   strict-route: true
