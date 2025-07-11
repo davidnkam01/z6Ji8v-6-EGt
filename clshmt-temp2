@@ -1,0 +1,356 @@
+mixed-port: 7890
+ipv6: true
+log-level: warning
+allow-lan: true
+mode: rule
+disable-keep-alive: false
+keep-alive-interval: 15
+keep-alive-idle: 10
+unified-delay: true
+geo-auto-update: true
+geo-update-interval: 168
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+tun:
+  enable: true
+  mtu: 9000
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  stack: mixed
+  auto-route: true
+  strict-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  ipv6: true
+  respect-rules: true
+  listen: 0.0.0.0:53
+  use-system-hosts: false
+  nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - https://dns.adguard-dns.com/dns-query
+    - tls://94.140.14.14
+    - tls://94.140.15.15
+    - tls://dns.adguard-dns.com
+    - quic://94.140.14.14
+    - quic://94.140.15.15
+    - quic://dns.adguard-dns.com
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  proxy-server-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  default-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+  direct-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
+    TLS:
+      ports: [443, 8443, 2053, 2083, 2087, 2096]
+
+ntp:
+  enable: true
+  server: time.apple.com
+  port: 123
+  interval: 30
+
+proxies:
+
+  - name: Baku-01
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:8836:f1c9:4393:9b37:3814/128
+    private-key: 2JvYl2ncs/+4XvDAVa+/d2CUOzxVCYyTEkUSf1/X300=
+    server: 188.114.98.224
+    port: 908
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    reserved: ZAnO
+    udp: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+  
+  - name: Baku-02
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
+    private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
+    server: 188.114.98.224
+    port: 894
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+
+  - name: Baku-03
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:89b4:8fd1:c3bf:403e:17df/128
+    private-key: WGeKhNmWUWcdND0L1erlQCs8tH/MgrXMxoSdLsns8lM=
+    server: 188.114.98.224
+    port: 1074
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    reserved: uJZF
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+
+  - name: Baku-04
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:88e0:428a:dfe:594:370d/128
+    private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
+    server: 188.114.98.224
+    port: 2408
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    reserved: mM3N
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      
+proxy-groups:
+  - name: Selector
+    type: select
+    proxies:
+      - 🇦🇿-Baku
+      - agg
+      - f2c
+      - sm-hys
+      - DIRECT
+
+  - name: agg
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 30 
+    max-failed-times: 6
+    hidden: true
+    use:
+      - 01agg
+
+  - name: f2c
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 30
+    max-failed-times: 6
+    hidden: true
+    use:
+      - 02f2c1
+      - 02f2c2
+
+  - name: sm-hys
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 30 
+    max-failed-times: 6
+    hidden: true
+    use:
+      - 03sm-hys
+
+  - name: 🇦🇿-Baku
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500
+    max-failed-times: 6
+    hidden: true
+    proxies:
+      - Baku-01
+      - Baku-02
+      - Baku-03
+      - Baku-04
+
+proxy-providers:
+
+  01agg:
+    type: http
+    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
+    path: ./provide/01agg.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  02f2c1:
+    type: http
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
+    path: ./provide/02f2c1.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  02f2c2:
+    type: http
+    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
+    path: ./provide/02f2c2.yaml
+    interval: 3600
+    proxy: DIRECT
+
+  03sm-hys:
+    type: http
+    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
+    path: ./provide/03sm-hys.yaml
+    interval: 3600
+    proxy: DIRECT
+
+rule-providers:
+  #####DIRECT-rules#####
+  ircidr:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt"
+    path: ./ruleset/ircidr.txt
+    proxy: DIRECT
+    interval: 86400
+
+  ir-lite:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.txt"
+    path: ./ruleset/ir-lite.txt
+    proxy: DIRECT
+    interval: 86400
+
+  private:
+    type: http
+    format: text
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.txt"
+    path: ./ruleset/private.txt
+    proxy: DIRECT
+    interval: 86400
+
+  irasn:
+    type: http
+    format: text
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt"
+    path: ./ruleset/irasn.txt
+    proxy: DIRECT
+    interval: 86400
+
+  openai:
+    type: http
+    format: text
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/openai.txt"
+    path: ./ruleset/openai.txt
+    proxy: DIRECT
+    interval: 86400
+  
+
+
+  ####Reject-Rules####
+  category-ads-all:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.txt"
+    path: ./ruleset/category-ads-all.txt
+    interval: 86400
+  malware:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt"
+    path: ./ruleset/malware.txt
+    interval: 86400
+  phishing:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
+    path: ./ruleset/phishing.txt
+    interval: 86400
+  cryptominers:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt"
+    path: ./ruleset/cryptominers.txt
+    interval: 86400
+
+rules:
+  #####direct-rules#####
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - DOMAIN,yacd.metacubex.one,DIRECT
+  - DOMAIN,clash.metacubex.one,DIRECT
+  - DOMAIN,d.metacubex.one,DIRECT
+  - DOMAIN,metacubex.github.io/metacubexd,DIRECT
+  - DOMAIN,metacubexd.pages.dev,DIRECT
+  - DOMAIN,cube.shiina-rimo.cafe,DIRECT
+  - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
+
+  - RULE-SET,ir-lite,DIRECT
+  - RULE-SET,ircidr,DIRECT
+  - RULE-SET,irasn,DIRECT
+  - GEOIP,lan,DIRECT,no-resolve
+
+  ####Reject-Rules####
+  - RULE-SET,category-ads-all,REJECT
+  - RULE-SET,malware,REJECT
+  - RULE-SET,phishing,REJECT
+  - RULE-SET,cryptominers,REJECT
+
+  - MATCH,Selector
