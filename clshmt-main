@@ -30,7 +30,7 @@ dns:
   enable: true
   ipv6: true
   respect-rules: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
   use-system-hosts: false
   nameserver:
     - 94.140.14.14
