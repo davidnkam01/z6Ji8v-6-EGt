@@ -306,6 +306,15 @@ rule-providers:
     path: ./ruleset/openai.txt
     proxy: DIRECT
     interval: 86400
+
+  openai-domain:
+    type: http
+    format: text
+    behavior: classical
+    url: "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/openai"
+    path: ./ruleset/openai-domain.txt
+    proxy: DIRECT
+    interval: 86400
   
 
 
@@ -353,6 +362,7 @@ rules:
 
   - RULE-SET,ir-lite,DIRECT
   - RULE-SET,openai,DIRECT
+  - RULE-SET,openai-domain,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
