@@ -59,7 +59,6 @@ dns:
     - 2a10:50c0::ad2:ff
   nameserver-policy:
     rule-set:ir-lite: 178.22.122.100#DIRECT
-    rule-set:openai: 178.22.122.100#DIRECT
 
 sniffer:
   enable: true
@@ -372,6 +371,10 @@ rules:
   - DOMAIN,chatgpt.com,DIRECT
   - DOMAIN-SUFFIX,chatgpt.com,DIRECT
   - DOMAIN-KEYWORD,chatgpt,DIRECT
+
+
+
+  
 
   ####Reject-Rules####
   - RULE-SET,category-ads-all,REJECT
