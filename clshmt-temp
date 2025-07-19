@@ -60,7 +60,6 @@ dns:
   nameserver-policy:
     rule-set:ir-lite: 178.22.122.100#DIRECT
     rule-set:openai: 178.22.122.100#DIRECT
-    rule-set:openai-domain: 178.22.122.100#DIRECT
 
 sniffer:
   enable: true
@@ -310,15 +309,6 @@ rule-providers:
     path: ./ruleset/openai.txt
     proxy: DIRECT
     interval: 86400
-
-  openai-domain:
-    type: http
-    format: text
-    behavior: classical
-    url: "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/openai"
-    path: ./ruleset/openai-domain.txt
-    proxy: DIRECT
-    interval: 86400
   
 
 
@@ -366,7 +356,9 @@ rules:
 
   - RULE-SET,ir-lite,DIRECT
   - RULE-SET,openai,DIRECT
-  - RULE-SET,openai-domain,DIRECT
+  - DOMAIN,chatgpt.com,DIRECT
+  - DOMAIN-SUFFIX,chatgpt.com,DIRECT
+  - DOMAIN-KEYWORD,chatgpt,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
