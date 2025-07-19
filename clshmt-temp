@@ -369,6 +369,7 @@ rules:
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
 
+##Openai
   - RULE-SET,openai,DIRECT
   - RULE-SET,openai-site,DIRECT
   - DOMAIN,chatgpt.com,DIRECT
