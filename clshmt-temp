@@ -57,6 +57,10 @@ dns:
     - 94.140.15.15
     - 2a10:50c0::ad1:ff 
     - 2a10:50c0::ad2:ff
+  nameserver-policy:
+    rule-set:ir-lite: 178.22.122.100#DIRECT
+    rule-set:openai: 178.22.122.100#DIRECT
+    rule-set:openai-domain: 178.22.122.100#DIRECT
 
 sniffer:
   enable: true
@@ -361,8 +365,8 @@ rules:
   - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
   - RULE-SET,ir-lite,DIRECT
-  - RULE-SET,openai,DIRECT,no-resolve
-  - RULE-SET,openai-domain,DIRECT,no-resolve
+  - RULE-SET,openai,DIRECT
+  - RULE-SET,openai-domain,DIRECT
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
