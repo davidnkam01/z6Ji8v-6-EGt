@@ -311,7 +311,7 @@ rule-providers:
     proxy: DIRECT
     interval: 86400
 
-  openai:
+  openai-site:
     type: http
     format: yaml
     behavior: domain
