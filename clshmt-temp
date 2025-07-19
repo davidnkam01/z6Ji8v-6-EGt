@@ -361,8 +361,8 @@ rules:
   - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
   - RULE-SET,ir-lite,DIRECT
-  - RULE-SET,openai,DIRECT
-  - RULE-SET,openai-domain,DIRECT
+  - RULE-SET,openai,DIRECT,no-resolve
+  - RULE-SET,openai-domain,DIRECT,no-resolve
   - RULE-SET,ircidr,DIRECT
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
