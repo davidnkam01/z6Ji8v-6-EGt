@@ -60,7 +60,6 @@ dns:
   nameserver-policy:
     rule-set:ir-lite: 178.22.122.100#DIRECT
     rule-set:openai: 178.22.122.100#DIRECT
-    #rule-set:openai-site: 178.22.122.100#DIRECT
 
 sniffer:
   enable: true
@@ -369,9 +368,7 @@ rules:
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
 
-##Openai
   - RULE-SET,openai,DIRECT
-  #- RULE-SET,openai-site,DIRECT
   - DOMAIN,chatgpt.com,DIRECT
   - DOMAIN-SUFFIX,chatgpt.com,DIRECT
   - DOMAIN-KEYWORD,chatgpt,DIRECT
