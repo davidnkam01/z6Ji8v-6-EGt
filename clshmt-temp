@@ -85,7 +85,7 @@ proxies:
     ipv6: 2606:4700:110:8836:f1c9:4393:9b37:3814/128
     private-key: 2JvYl2ncs/+4XvDAVa+/d2CUOzxVCYyTEkUSf1/X300=
     server: 188.114.98.224
-    port: 908
+    port: 878
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
@@ -109,7 +109,7 @@ proxies:
     ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
     private-key: mOnRw7baolkZD3W/RuW/lWC22PFutpb61+oUQ1zeMkI=
     server: 188.114.98.224
-    port: 894
+    port: 878
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
@@ -132,7 +132,7 @@ proxies:
     ipv6: 2606:4700:110:89b4:8fd1:c3bf:403e:17df/128
     private-key: WGeKhNmWUWcdND0L1erlQCs8tH/MgrXMxoSdLsns8lM=
     server: 188.114.98.224
-    port: 1074
+    port: 878
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
@@ -156,7 +156,7 @@ proxies:
     ipv6: 2606:4700:110:88e0:428a:dfe:594:370d/128
     private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
     server: 188.114.98.224
-    port: 2408
+    port: 878
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     allowed-ips:
       - 0.0.0.0/0
