@@ -204,8 +204,7 @@ proxies:
     server: 188.114.98.224
     port: 878
     ip: 172.16.0.2
-    private-key:
-ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
+    private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     udp: true
     reserved: [0, 0, 0, 0]
