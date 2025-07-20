@@ -20,6 +20,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
+    - udp://any:53
   stack: mixed
   auto-route: true
   strict-route: true
@@ -74,34 +75,9 @@ ntp:
   port: 123
   interval: 30
 
-
 proxies:
 
-  - name: IR-ENTRY-07
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2606:4700:110:8bcb:885e:2c53:fdc4:64a2/128
-    private-key: 2DnMM21eeR48YFMiLSd5mRXU+lJVPdfjz65jQT4bZUg=
-    server: 188.114.98.224
-    port: 942
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    allowed-ips:
-      - 0.0.0.0/0
-      - ::/0
-    reserved: 5pyz
-    udp: true
-    mtu: 1280
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
-    remote-dns-resolve: true
-    amnezia-wg-option:
-      jc: '4'
-      jmin: '40'
-      jmax: '70'
-      h1: '1'
-      h2: '2'
-      h3: '3'
-
-  - name: Baku-01
+  - name: 01-W-agg
     type: wireguard
     ip: 172.16.0.2/32
     ipv6: 2606:4700:110:8836:f1c9:4393:9b37:3814/128
@@ -115,9 +91,9 @@ proxies:
     mtu: 1280
     reserved: ZAnO
     udp: true
-    dialer-proxy: IR-ENTRY-07
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    dialer-proxy: agg
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -126,7 +102,7 @@ proxies:
       h2: '2'
       h3: '3'
   
-  - name: Baku-02
+  - name: 02-W-f2c
     type: wireguard
     ip: 172.16.0.2/32
     ipv6: 2606:4700:110:86bf:8c16:833e:bb7d:9a59/128
@@ -139,9 +115,9 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dialer-proxy: IR-ENTRY-07
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    dialer-proxy: f2c
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -164,9 +140,9 @@ proxies:
     mtu: 1280
     udp: true
     reserved: uJZF
-    dialer-proxy: IR-ENTRY-07
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    #dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -189,9 +165,9 @@ proxies:
     mtu: 1280
     udp: true
     reserved: mM3N
-    dialer-proxy: IR-ENTRY-07
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    #dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -200,45 +176,15 @@ proxies:
       h2: '2'
       h3: '3'
       
-  - name: warp1
-    type: wireguard
-    server: 188.114.98.224
-    port: 878
-    ip: 172.16.0.2
-    private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    udp: true
-    peers:
-      - public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-        endpoint: 188.114.98.224:878
-        allowed-ips:
-          - 0.0.0.0/0
-          - ::/0
-
-  - name: warp-in-warp
-    type: wireguard
-    server: 172.16.0.1
-    port: 878
-    ip: 172.16.1.2
-    private-key: 2DnMM21eeR48YFMiLSd5mRXU+lJVPdfjz65jQT4bZUg=
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    udp: true
-    peers:
-      - public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-        endpoint: 172.16.0.1:878
-        allowed-ips:
-          - 0.0.0.0/0
-          - ::/0
-
 proxy-groups:
   - name: Selector
     type: select
     proxies:
-      - 🇦🇿-Baku
-      - warp-in-warp
+      - W-All
+      - 01-W-agg
+      - 02-W-f2c
       - agg
       - f2c
-      - sm-hys
       - DIRECT
 
   - name: agg
@@ -264,18 +210,7 @@ proxy-groups:
       - 02f2c1
       - 02f2c2
 
-  - name: sm-hys
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30 
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 03sm-hys
-
-  - name: 🇦🇿-Baku
+  - name: W-All
     type: url-test
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
@@ -284,10 +219,8 @@ proxy-groups:
     max-failed-times: 6
     hidden: true
     proxies:
-      - Baku-01
-      - Baku-02
-      - Baku-03
-      - Baku-04
+      - 01-W-agg
+      - 02-W-f2c
 
 proxy-providers:
 
@@ -309,13 +242,6 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
     path: ./provide/02f2c2.yaml
-    interval: 3600
-    proxy: DIRECT
-
-  03sm-hys:
-    type: http
-    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
-    path: ./provide/03sm-hys.yaml
     interval: 3600
     proxy: DIRECT
 
@@ -354,15 +280,6 @@ rule-providers:
     behavior: classical
     url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt"
     path: ./ruleset/irasn.txt
-    proxy: DIRECT
-    interval: 86400
-
-  openai:
-    type: http
-    format: text
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/openai.txt"
-    path: ./ruleset/openai.txt
     proxy: DIRECT
     interval: 86400
   
