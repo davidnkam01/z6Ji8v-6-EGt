@@ -209,7 +209,6 @@ proxies:
     private-key: ELcdcGjoth2pYDLAz3wvYO4uAXfUSvTtFI/NBvu4Ymk=
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     udp: true
-    reserved: [0, 0, 0, 0]
     peers:
       - public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
         endpoint: 188.114.98.224:878
@@ -225,7 +224,6 @@ proxies:
     private-key: 2DnMM21eeR48YFMiLSd5mRXU+lJVPdfjz65jQT4bZUg=
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     udp: true
-    reserved: [0, 0, 0, 0]
     peers:
       - public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
         endpoint: 172.16.0.1:878
