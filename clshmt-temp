@@ -118,13 +118,6 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
     dialer-proxy: IR-ENTRY-07
-    amnezia-wg-option:
-      jc: '4'
-      jmin: '40'
-      jmax: '70'
-      h1: '1'
-      h2: '2'
-      h3: '3'
   
   - name: Baku-02
     type: wireguard
@@ -142,13 +135,6 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
     dialer-proxy: IR-ENTRY-07
-    amnezia-wg-option:
-      jc: '4'
-      jmin: '40'
-      jmax: '70'
-      h1: '1'
-      h2: '2'
-      h3: '3'
 
   - name: Baku-03
     type: wireguard
@@ -167,13 +153,6 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
     dialer-proxy: IR-ENTRY-07
-    amnezia-wg-option:
-      jc: '4'
-      jmin: '40'
-      jmax: '70'
-      h1: '1'
-      h2: '2'
-      h3: '3'
 
   - name: Baku-04
     type: wireguard
@@ -192,13 +171,6 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
     dialer-proxy: IR-ENTRY-07
-    amnezia-wg-option:
-      jc: '4'
-      jmin: '40'
-      jmax: '70'
-      h1: '1'
-      h2: '2'
-      h3: '3'
       
 proxy-groups:
   - name: Selector
