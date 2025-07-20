@@ -57,6 +57,18 @@ dns:
     - 94.140.15.15
     - 2a10:50c0::ad1:ff 
     - 2a10:50c0::ad2:ff
+  fallback:
+    - 94.140.14.14
+    - 94.140.15.15
+    - https://dns.adguard-dns.com/dns-query
+    - tls://94.140.14.14
+    - tls://94.140.15.15
+    - tls://dns.adguard-dns.com
+    - quic://94.140.14.14
+    - quic://94.140.15.15
+    - quic://dns.adguard-dns.com
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
 
 sniffer:
   enable: true
@@ -95,6 +107,9 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
 
   - name: Baku-01
     type: wireguard
@@ -202,7 +217,6 @@ proxy-groups:
       - 🇦🇿-Baku
       - agg
       - f2c
-      - sm-hys
       - DIRECT
 
   - name: agg
@@ -227,17 +241,6 @@ proxy-groups:
     use:
       - 02f2c1
       - 02f2c2
-
-  - name: sm-hys
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30 
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 03sm-hys
 
   - name: 🇦🇿-Baku
     type: url-test
@@ -276,13 +279,6 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
 
-  03sm-hys:
-    type: http
-    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
-    path: ./provide/03sm-hys.yaml
-    interval: 3600
-    proxy: DIRECT
-
 rule-providers:
   #####DIRECT-rules#####
   ircidr:
@@ -318,15 +314,6 @@ rule-providers:
     behavior: classical
     url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt"
     path: ./ruleset/irasn.txt
-    proxy: DIRECT
-    interval: 86400
-
-  openai:
-    type: http
-    format: text
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/openai.txt"
-    path: ./ruleset/openai.txt
     proxy: DIRECT
     interval: 86400
   
