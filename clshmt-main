@@ -329,24 +329,6 @@ rule-providers:
     path: ./ruleset/openai.txt
     proxy: DIRECT
     interval: 86400
-
-  openai-site:
-    type: http
-    format: yaml
-    behavior: domain
-    url: "https://github.com/MetaCubeX/meta-rules-dat/blob/meta/geo/geosite/openai.yaml"
-    path: ./ruleset/openai-site.yaml
-    proxy: DIRECT
-    interval: 86400
-
-  spotify-site:
-    type: http
-    format: yaml
-    behavior: domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/spotify.yaml"
-    path: ./ruleset/spotify-site.yaml
-    proxy: DIRECT
-    interval: 86400
   
 
 
@@ -397,10 +379,10 @@ rules:
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
 
-  - RULE-SET,openai,DIRECT
-  - DOMAIN,chatgpt.com,DIRECT
-  - DOMAIN-SUFFIX,chatgpt.com,DIRECT
-  - DOMAIN-KEYWORD,chatgpt,DIRECT
+  ##- RULE-SET,openai,DIRECT
+  ##- DOMAIN,chatgpt.com,DIRECT
+  ##- DOMAIN-SUFFIX,chatgpt.com,DIRECT
+  ##- DOMAIN-KEYWORD,chatgpt,DIRECT
 
 
 
