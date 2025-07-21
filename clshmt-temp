@@ -31,6 +31,7 @@ dns:
   prefer-h3: true
   use-system-hosts: true
   use-hosts: true
+  respect-rules: true
   listen: 0.0.0.0:1053
   enhanced-mode: fake-ip
   fake-ip-filter-mode: blacklist
