@@ -266,6 +266,75 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
   
+rule-providers:
+  #####DIRECT-rules#####
+  ircidr:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.mrs"
+    path: ./ruleset/ircidr.mrs
+    proxy: DIRECT
+    interval: 86400
+
+  ir-lite:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.mrs"
+    path: ./ruleset/ir-lite.mrs
+    proxy: DIRECT
+    interval: 86400
+
+  private:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.mrs"
+    path: ./ruleset/private.mrs
+    proxy: DIRECT
+    interval: 86400
+
+  irasn:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.mrs"
+    path: ./ruleset/irasn.mrs
+    proxy: DIRECT
+    interval: 86400
+  
+
+
+  ####Reject-Rules####
+  category-ads-all:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.mrs"
+    path: ./ruleset/category-ads-all.mrs
+    proxy: DIRECT
+    interval: 86400
+
+  malware:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.mrs"
+    path: ./ruleset/malware.mrs
+    proxy: DIRECT
+    interval: 86400
+
+  phishing:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.mrs"
+    path: ./ruleset/phishing.mrs
+    proxy: DIRECT
+    interval: 86400
+
+  cryptominers:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.mrs"
+    path: ./ruleset/cryptominers.mrs
+    proxy: DIRECT
+    interval: 86400
+
 rules:
   #####direct-rules#####
   - DOMAIN,clash.razord.top,DIRECT
@@ -278,18 +347,24 @@ rules:
   - DOMAIN,cube.shiina-rimo.cafe,DIRECT
   - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
-  - GEOIP,private,DIRECT,no-resolve
-  - GEOSITE,ir,DIRECT
-  - GEOIP,ir,DIRECT
+  - RULE-SET,ir-lite,DIRECT
+  - RULE-SET,ircidr,DIRECT
+  - RULE-SET,irasn,DIRECT
+  - GEOIP,lan,DIRECT,no-resolve
 
-  - GEOSITE,category-ads-all,REJECT
-  - GEOSITE,malware,REJECT
-  - GEOSITE,phishing,REJECT
-  - GEOSITE,cryptominers,REJECT
-  - GEOIP,malware,REJECT
-  - GEOIP,phishing,REJECT
+  ##- RULE-SET,openai,DIRECT
+  ##- DOMAIN,chatgpt.com,DIRECT
+  ##- DOMAIN-SUFFIX,chatgpt.com,DIRECT
+  ##- DOMAIN-KEYWORD,chatgpt,DIRECT
+
+  ####Reject-Rules####
+  - RULE-SET,category-ads-all,REJECT
+  - RULE-SET,malware,REJECT
+  - RULE-SET,phishing,REJECT
+  - RULE-SET,cryptominers,REJECT
 
   - MATCH,Selector
+
 
 geox-url:
   geoip: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat"
@@ -297,5 +372,5 @@ geox-url:
   mmdb: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/geoip.metadb"
   asn: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/geolite2/GeoLite2-ASN.mmdb"
 
-geo-auto-update: true
+geo-auto-update: false
 geo-update-interval: 168
