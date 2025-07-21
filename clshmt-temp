@@ -351,6 +351,14 @@ rule-providers:
     proxy: DIRECT
     interval: 86400
 
+  nsfw:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/nsfw.mrs"
+    path: ./ruleset/nsfw.mrs
+    proxy: DIRECT
+    interval: 86400
+
 rules:
   #####direct-rules#####
   - DOMAIN,clash.razord.top,DIRECT
@@ -380,6 +388,7 @@ rules:
   - RULE-SET,malware-ip,REJECT
   - RULE-SET,phishing-ip,REJECT
   - RULE-SET,cryptominers,REJECT
+  - RULE-SET,nsfw,REJECT
 
   - MATCH,Selector
 
