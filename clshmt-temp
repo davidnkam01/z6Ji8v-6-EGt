@@ -295,8 +295,8 @@ rule-providers:
   irasn:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.mrs"
-    path: ./ruleset/irasn.mrs
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt"
+    path: ./ruleset/irasn.txt
     proxy: DIRECT
     interval: 86400
   
@@ -319,11 +319,27 @@ rule-providers:
     proxy: DIRECT
     interval: 86400
 
+  malware-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware-ip.mrs"
+    path: ./ruleset/malware-ip.mrs
+    proxy: DIRECT
+    interval: 86400
+
   phishing:
     type: http
     behavior: domain
     url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.mrs"
     path: ./ruleset/phishing.mrs
+    proxy: DIRECT
+    interval: 86400
+  
+  phishing-ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing-ip.mrs"
+    path: ./ruleset/phishing-ip.mrs
     proxy: DIRECT
     interval: 86400
 
@@ -361,6 +377,8 @@ rules:
   - RULE-SET,category-ads-all,REJECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
+  - RULE-SET,malware-ip,REJECT
+  - RULE-SET,phishing-ip,REJECT
   - RULE-SET,cryptominers,REJECT
 
   - MATCH,Selector
