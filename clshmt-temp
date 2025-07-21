@@ -78,7 +78,6 @@ dns:
     - 2a10:50c0::ad1:ff 
     - 2a10:50c0::ad2:ff
 
-##
 sniffer:
   enable: true
   force-dns-mapping: true
