@@ -1,14 +1,13 @@
 mixed-port: 7890
 ipv6: true
 log-level: warning
-allow-lan: true
+allow-lan: false
 mode: rule
 disable-keep-alive: false
 keep-alive-interval: 15
 keep-alive-idle: 10
 unified-delay: true
-geo-auto-update: true
-geo-update-interval: 168
+global-client-fingerprint: chrome
 
 profile:
   store-selected: true
@@ -29,49 +28,34 @@ tun:
 dns:
   enable: true
   ipv6: true
-  respect-rules: true
-  listen: 0.0.0.0:53
-  use-system-hosts: false
-  nameserver:
-    - https://8.8.8.8/dns-query
-    - https://8.8.4.4/dns-query
-    - tls://8.8.8.8
-    - tls://8.8.4.4
-    - '8.8.8.8' 
-    - '8.8.4.4'
-    - '2001:4860:4860::8888' 
-    - '2001:4860:4860::8844'
-    - https://1.1.1.1/dns-query
-    - https://1.0.0.1/dns-query
-    - tls://1.1.1.1
-    - tls://1.0.0.1 
-    - '1.1.1.1' 
-    - '1.0.1.0'
-    - '2606:4700:4700::1111'
-    - '2606:4700:4700::1001' 
-  proxy-server-nameserver:
-    - '8.8.8.8' 
-    - '8.8.4.4' 
-    - '2001:4860:4860::8888' 
-    - '2001:4860:4860::8844' 
-    - '1.1.1.1' 
-    - '1.0.1.0'
-    - '2606:4700:4700::1111'
-    - '2606:4700:4700::1001' 
+  prefer-h3: true
+  use-system-hosts: true
+  use-hosts: true
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-filter-mode: blacklist
+
+
   default-nameserver:
     - 8.8.8.8
-    - 8.8.4.4 
-    - 1.0.0.1 
-    - 1.1.1.1 
-  direct-nameserver:
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+    - system
+
+  nameserver:
     - 8.8.8.8
-    - 8.8.4.4 
-    - 1.0.0.1 
-    - 1.1.1.1 
-    - '2606:4700:4700::1111'
-    - '2606:4700:4700::1001' 
-    - '2001:4860:4860::8888' 
-    - '2001:4860:4860::8844' 
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+    - tls://8.8.8.8
+    - tls://8.8.4.4
+    - tls://1.1.1.1
+    - tls://1.0.0.1
+    - https://mozilla.cloudflare-dns.com/dns-query#DNS&h3=true
+    - https://dns.alidns.com/dns-query#h3=true
+    - quic://dns.adguard.com:784
+    - system
 
 sniffer:
   enable: true
@@ -92,6 +76,28 @@ ntp:
 
 proxies:
 
+  - name: IR-ENTRY-07
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:8bcb:885e:2c53:fdc4:64a2/128
+    private-key: 2DnMM21eeR48YFMiLSd5mRXU+lJVPdfjz65jQT4bZUg=
+    server: 188.114.98.224
+    port: 942
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    reserved: 5pyz
+    udp: true
+    mtu: 1280
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+
   - name: Baku-01
     type: wireguard
     ip: 172.16.0.2/32
@@ -108,6 +114,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -131,6 +138,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -155,6 +163,7 @@ proxies:
     reserved: uJZF
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -179,6 +188,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
     remote-dns-resolve: true
+    dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -194,7 +204,6 @@ proxy-groups:
       - 🇦🇿-Baku
       - agg
       - f2c
-      - sm-hys
       - DIRECT
 
   - name: agg
@@ -219,17 +228,6 @@ proxy-groups:
     use:
       - 02f2c1
       - 02f2c2
-
-  - name: sm-hys
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30 
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 03sm-hys
 
   - name: 🇦🇿-Baku
     type: url-test
@@ -267,58 +265,38 @@ proxy-providers:
     path: ./provide/02f2c2.yaml
     interval: 3600
     proxy: DIRECT
-
-  03sm-hys:
-    type: http
-    url: "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria"
-    path: ./provide/03sm-hys.yaml
-    interval: 3600
-    proxy: DIRECT
-
+  
 rule-providers:
   #####DIRECT-rules#####
   ircidr:
     type: http
-    format: text
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt"
-    path: ./ruleset/ircidr.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.mrs"
+    path: ./ruleset/ircidr.mrs
     proxy: DIRECT
     interval: 86400
 
   ir-lite:
     type: http
-    format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.txt"
-    path: ./ruleset/ir-lite.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.mrs"
+    path: ./ruleset/ir-lite.mrs
     proxy: DIRECT
     interval: 86400
 
   private:
     type: http
-    format: text
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.txt"
-    path: ./ruleset/private.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.mrs"
+    path: ./ruleset/private.mrs
     proxy: DIRECT
     interval: 86400
 
   irasn:
     type: http
-    format: text
     behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.txt"
-    path: ./ruleset/irasn.txt
-    proxy: DIRECT
-    interval: 86400
-
-  openai:
-    type: http
-    format: text
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/openai.txt"
-    path: ./ruleset/openai.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.mrs"
+    path: ./ruleset/irasn.mrs
     proxy: DIRECT
     interval: 86400
   
@@ -327,31 +305,34 @@ rule-providers:
   ####Reject-Rules####
   category-ads-all:
     type: http
-    format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.txt"
-    path: ./ruleset/category-ads-all.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.mrs"
+    path: ./ruleset/category-ads-all.mrs
+    proxy: DIRECT
     interval: 86400
+
   malware:
     type: http
-    format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt"
-    path: ./ruleset/malware.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.mrs"
+    path: ./ruleset/malware.mrs
+    proxy: DIRECT
     interval: 86400
+
   phishing:
     type: http
-    format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
-    path: ./ruleset/phishing.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.mrs"
+    path: ./ruleset/phishing.mrs
+    proxy: DIRECT
     interval: 86400
+
   cryptominers:
     type: http
-    format: text
     behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt"
-    path: ./ruleset/cryptominers.txt
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.mrs"
+    path: ./ruleset/cryptominers.mrs
+    proxy: DIRECT
     interval: 86400
 
 rules:
@@ -371,6 +352,11 @@ rules:
   - RULE-SET,irasn,DIRECT
   - GEOIP,lan,DIRECT,no-resolve
 
+  ##- RULE-SET,openai,DIRECT
+  ##- DOMAIN,chatgpt.com,DIRECT
+  ##- DOMAIN-SUFFIX,chatgpt.com,DIRECT
+  ##- DOMAIN-KEYWORD,chatgpt,DIRECT
+
   ####Reject-Rules####
   - RULE-SET,category-ads-all,REJECT
   - RULE-SET,malware,REJECT
@@ -378,3 +364,13 @@ rules:
   - RULE-SET,cryptominers,REJECT
 
   - MATCH,Selector
+
+
+geox-url:
+  geoip: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat"
+  geosite: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geosite.dat"
+  mmdb: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/geoip.metadb"
+  asn: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/geolite2/GeoLite2-ASN.mmdb"
+
+geo-auto-update: false
+geo-update-interval: 168
