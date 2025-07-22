@@ -300,8 +300,22 @@ rules:
 
   - GEOIP,private,DIRECT,no-resolve
   - GEOSITE,category-ir,DIRECT
+  - GEOSITE,category-gov-ir,DIRECT
+  - GEOSITE,category-bank-ir,DIRECT
+  - GEOSITE,category-news-ir,DIRECT
+  - GEOSITE,category-tech-ir,DIRECT
+  - GEOSITE,category-media-ir,DIRECT
+  - GEOSITE,category-bourse-ir,DIRECT
+  - GEOSITE,category-forums-ir,DIRECT
+  - GEOSITE,category-travel-ir,DIRECT
+  - GEOSITE,category-payment-ir,DIRECT
+  - GEOSITE,category-scholar-ir,DIRECT
+  - GEOSITE,category-shopping-ir,DIRECT
+  - GEOSITE,category-insurance-ir,DIRECT
+  - GEOSITE,category-education-ir,DIRECT
   - GEOIP,ir,DIRECT
 
   - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,category-ads-ir,REJECT
 
   - MATCH,Selector
