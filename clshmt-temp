@@ -221,47 +221,11 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
-      - 🇦🇿-Baku
-      - agg
-      - f2c
-      - DIRECT
-
-  - name: agg
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30 
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 01agg
-
-  - name: f2c
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 02f2c1
-      - 02f2c2
-
-  - name: 🇦🇿-Baku
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 500
-    max-failed-times: 6
-    hidden: true
-    proxies:
       - Baku-01
       - Baku-02
       - Baku-03
       - Baku-04
+      - DIRECT
 
 proxy-providers:
 
