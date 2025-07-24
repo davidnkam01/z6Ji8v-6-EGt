@@ -13,7 +13,7 @@ geo-auto-update: false
 geo-update-interval: 168
 
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 
 tun:
@@ -252,7 +252,7 @@ proxies:
     ip: 10.66.66.10/32
     ipv6: fd42:42:42::10/128
     private-key: YJg1QmFqxVX4CFOiRH8utAxLw8OJxYQgjHMK0YmbtU0=
-    server: fi.tcp-udp.sit
+    server: fi.tcp-udp.site
     port: 51820
     public-key: xwaJcqiPjKK/FrrOBc3eTp2xyxRqbjFdFal19x7ZoX8=
     pre-shared-key: 4dVhyXqfdp7kakhW3XTsQssQV3mcuOFSXoLN6RfgAU8=
@@ -301,8 +301,8 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
-      - SHMX
       - 🇦🇿-Baku
+      - SHMX
       - Baku-01
       - Baku-02
       - Baku-03
