@@ -301,6 +301,8 @@ proxy-groups:
   - name: Selector
     type: select
     proxies:
+      - SHMX
+      - 🇦🇿-Baku
       - Baku-01
       - Baku-02
       - Baku-03
