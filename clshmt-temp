@@ -388,14 +388,18 @@ proxy-groups:
     type: select
     proxies:
       - 🇦🇿-Baku
-      - SHMX
+      - Proton-F
       - Baku-01
       - Baku-02
       - Baku-03
       - Baku-04
-      - SHMX-FR
-      - SHMX-DE
-      - SHMX-FI
+      - P-NL#217
+      - P-NL#232
+      - P-RO#22
+      - P-RO#29
+      - P-RO#30
+      - P-US#69
+      - P-US#73
       - DIRECT
 
 
