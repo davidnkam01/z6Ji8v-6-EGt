@@ -222,21 +222,19 @@ proxies:
       h3: '3'
       h4: '4'
 
-  - name: SHMX-DE
+  - name: P-NL#217
     type: wireguard
-    ip: 10.66.66.4/32
-    ipv6: fd42:42:42::4/128
-    private-key: MPxOWjJzDJmBUCSOsLZQKJMBjqPJiqhc2gHhlFSrSmE=
-    server: de.tcp-udp.site
+    ip: 10.2.0.2/32
+    private-key: qGWfp/qU5q8XcL73MAXVv/rFjtwDHOOMe7fHHrpwOkA=
+    server: 185.165.240.23
     port: 51820
-    public-key: pZZjrCb6ePaStiUdWZbo5LdUxosaX5t/qQb2TxiMjVE=
-    pre-shared-key: IW4c8VtwYGK2le5ir6JDjnna6B7PHFwf22qu+MdcrsQ=
+    public-key: QGD/PKdxVXt9h0+gN7x8zB70sexJfv+0hhiJQou1BVc=
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: [ 10.2.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -247,21 +245,19 @@ proxies:
       h3: '3'
       h4: '4'
 
-  - name: SHMX-FI
+  - name: P-NL#232
     type: wireguard
-    ip: 10.66.66.10/32
-    ipv6: fd42:42:42::10/128
-    private-key: YJg1QmFqxVX4CFOiRH8utAxLw8OJxYQgjHMK0YmbtU0=
-    server: fi.tcp-udp.site
+    ip: 10.2.0.2/32
+    private-key: EMeftUVqE9/HZvHhC6SZbmQyHRUfaCSwHBDq4LH+ckg=
+    server: 185.177.125.13
     port: 51820
-    public-key: xwaJcqiPjKK/FrrOBc3eTp2xyxRqbjFdFal19x7ZoX8=
-    pre-shared-key: 4dVhyXqfdp7kakhW3XTsQssQV3mcuOFSXoLN6RfgAU8=
+    public-key: jJilN4ZNv7G6Cs64Rv422Ar05/qWNw0l4cXQ8n/O5Vg=
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: [ 10.2.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -272,21 +268,111 @@ proxies:
       h3: '3'
       h4: '4'
 
-  - name: SHMX-FR
+  - name: P-RO#22
     type: wireguard
-    ip: 10.66.66.10/32
-    ipv6: fd42:42:42::10/128
-    private-key: 2Pp8oIT18uaVQhd/ZswC4iwF84wg7Pj+wxCWuqHzoGY=
-    server: fr.tcp-udp.site
+    ip: 10.2.0.2/32
+    private-key: 2L8pFEUvqEd0WkBTeLCBF1xTv0ADyVu79OYsyy1xH3U=
+    server: 185.252.220.114
     port: 51820
-    public-key: YzgoDUrWehG5XNgIv22ev4OpHw0Y+m5Ih6wZx5Ag/Ec=
-    pre-shared-key: 8991PIzEFuFfU/cHKT5XA83Sztl1jZY4urDSNifK6jc=
+    public-key: h3CoyfmMyHSqCJBikhQQXAURkx73PXKIQ0hw48HqhGY=
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: [ 10.2.0.1 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-RO#29
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: +LWQmMThY6zzxnqpys4n/ZSPSAC3ItRG0x3PTnv5Ilk=
+    server: 146.70.246.146
+    port: 51820
+    public-key: Hn/oz255qtOjckrUeoA3Gi/UbX/sLSCZPfKXH4lXhjc=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 10.2.0.1 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-RO#30
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: oADdQKbz4TFdEGTc/5rxQ4VNjRmZ3+wXiLKGEPAtAGI=
+    server: 146.70.246.162
+    port: 51820
+    public-key: T8d25TmPZAJis61XdH5TB7o3/qJX9kTQnFMkCl1EjTE=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 10.2.0.1 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-US#69
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: 2Bqs6mHQA/uKEe08zkb3lRJZHl9lOrqDYh5/H5mzzXg=
+    server: 149.102.226.238
+    port: 51820
+    public-key: ljr0KidoBwgj8ZRs4DOCl7GbXMOwGeqJeYUHV9bt20o=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 10.2.0.1 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-US#73
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: CAl3UGrLPRg5/c1/SmQEX6z+MKnCJ0fz+0cZ+vTj7k8=
+    server: 149.102.226.239
+    port: 51820
+    public-key: c+9CyG97uDKPSgCtd/sjvFoXTnswiHsj3kd2CpdXIUc=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 10.2.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -326,7 +412,7 @@ proxy-groups:
       - Baku-03
       - Baku-04
 
-  - name: SHMX
+  - name: Proton-F
     type: url-test
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
@@ -334,9 +420,13 @@ proxy-groups:
     tolerance: 500
     max-failed-times: 6
     proxies:
-      - SHMX-FR
-      - SHMX-DE
-      - SHMX-FI
+      - P-NL#217
+      - P-NL#232
+      - P-RO#22
+      - P-RO#29
+      - P-RO#30
+      - P-US#69
+      - P-US#73
 
 proxy-providers:
 
