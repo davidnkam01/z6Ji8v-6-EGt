@@ -234,7 +234,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -257,7 +257,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -280,7 +280,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -303,7 +303,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -326,7 +326,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -349,7 +349,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -372,7 +372,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 10.2.0.1 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
