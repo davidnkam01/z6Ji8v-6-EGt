@@ -232,7 +232,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
@@ -255,7 +254,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
@@ -278,7 +276,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
@@ -301,7 +298,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
@@ -324,7 +320,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
@@ -347,7 +342,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
@@ -370,7 +364,6 @@ proxies:
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
-    mtu: 1280
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
