@@ -117,6 +117,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
 
   - name: Baku-01
     type: wireguard
@@ -142,6 +143,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
   
   - name: Baku-02
     type: wireguard
@@ -166,6 +168,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
 
   - name: Baku-03
     type: wireguard
@@ -191,6 +194,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
 
   - name: Baku-04
     type: wireguard
@@ -216,6 +220,82 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
+
+  - name: SHMX-DE
+    type: wireguard
+    ip: 10.66.66.4/32
+    ipv6: fd42:42:42::4/128
+    private-key: MPxOWjJzDJmBUCSOsLZQKJMBjqPJiqhc2gHhlFSrSmE=
+    server: de.tcp-udp.site
+    port: 51820
+    public-key: pZZjrCb6ePaStiUdWZbo5LdUxosaX5t/qQb2TxiMjVE=
+    pre-shared-key: IW4c8VtwYGK2le5ir6JDjnna6B7PHFwf22qu+MdcrsQ=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: SHMX-FI
+    type: wireguard
+    ip: 10.66.66.10/32
+    ipv6: fd42:42:42::10/128
+    private-key: YJg1QmFqxVX4CFOiRH8utAxLw8OJxYQgjHMK0YmbtU0=
+    server: fi.tcp-udp.sit
+    port: 51820
+    public-key: xwaJcqiPjKK/FrrOBc3eTp2xyxRqbjFdFal19x7ZoX8=
+    pre-shared-key: 4dVhyXqfdp7kakhW3XTsQssQV3mcuOFSXoLN6RfgAU8=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: SHMX-FR
+    type: wireguard
+    ip: 10.66.66.10/32
+    ipv6: fd42:42:42::10/128
+    private-key: 2Pp8oIT18uaVQhd/ZswC4iwF84wg7Pj+wxCWuqHzoGY=
+    server: fr.tcp-udp.site
+    port: 51820
+    public-key: YzgoDUrWehG5XNgIv22ev4OpHw0Y+m5Ih6wZx5Ag/Ec=
+    pre-shared-key: 8991PIzEFuFfU/cHKT5XA83Sztl1jZY4urDSNifK6jc=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    mtu: 1280
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
       
 proxy-groups:
   - name: Selector
@@ -225,7 +305,36 @@ proxy-groups:
       - Baku-02
       - Baku-03
       - Baku-04
+      - SHMX-FR
+      - SHMX-DE
+      - SHMX-FI
       - DIRECT
+
+
+  - name: 🇦🇿-Baku
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500
+    max-failed-times: 6
+    proxies:
+      - Baku-01
+      - Baku-02
+      - Baku-03
+      - Baku-04
+
+  - name: SHMX
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    timeout: 120000 
+    tolerance: 500
+    max-failed-times: 6
+    proxies:
+      - SHMX-FR
+      - SHMX-DE
+      - SHMX-FI
 
 proxy-providers:
 
