@@ -557,10 +557,10 @@ proxies:
 proxy-groups:
   - name: Selector
     type: select
-    interval: 600 
-    timeout: 10000
-    tolerance: 200
-    #max-failed-times: 6
+    #interval: 600 
+    #timeout: 10000
+    #tolerance: 200
+    max-failed-times: 6
     proxies:
       - Baku-01
       - Baku-02
