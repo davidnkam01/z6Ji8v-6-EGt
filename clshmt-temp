@@ -109,6 +109,7 @@ proxies:
     reserved: 5pyz
     udp: true
     mtu: 1280
+    dialer-proxy: Baku-04
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -211,7 +212,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: Baku-03
+    #dialer-proxy: Baku-03
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -399,6 +400,7 @@ proxy-groups:
       - Baku-02
       - Baku-03
       - Baku-04
+      - IR-ENTRY-07
       - P-NL#217
       - P-NL#232
       - P-RO#22
