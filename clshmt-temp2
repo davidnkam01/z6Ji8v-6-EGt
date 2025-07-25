@@ -585,9 +585,9 @@ proxy-groups:
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 600 
-    #timeout: 120000 
+    timeout: 30000
     tolerance: 100
-    #max-failed-times: 6
+    max-failed-times: 6
     proxies:
       - Baku-01
       - Baku-02
@@ -598,9 +598,9 @@ proxy-groups:
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 600 
-    #timeout: 120000 
+    timeout: 30000
     tolerance: 100
-    #max-failed-times: 6
+    max-failed-times: 6
     proxies:
       - P-NL#217
       - P-NL#232
@@ -614,9 +614,9 @@ proxy-groups:
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 600 
-    #timeout: 120000 
+    timeout: 30000
     tolerance: 100
-    #max-failed-times: 6
+    max-failed-times: 6
     proxies:
       - NAM-NL
       - NAM-AE
