@@ -30,39 +30,46 @@ tun:
 dns:
   enable: true
   ipv6: true
-  prefer-h3: true
-  use-system-hosts: true
-  use-hosts: true
   respect-rules: true
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  fake-ip-filter-mode: blacklist
-
-  default-nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-
+  listen: 0.0.0.0:1053
+  use-system-hosts: false
   nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-
-  proxy-server-nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-
-  direct-nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-
-  fallback:
-    - 94.140.14.15 
+    - 94.140.14.14
     - 94.140.15.15
+    - https://dns.adguard-dns.com/dns-query
+    - tls://94.140.14.14
+    - tls://94.140.15.15
+    - tls://dns.adguard-dns.com
+    - quic://94.140.14.14
+    - quic://94.140.15.15
+    - quic://dns.adguard-dns.com
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  proxy-server-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  default-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+  direct-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  fallback:
+    - 94.140.14.14
+    - 94.140.15.15
+    - https://dns.adguard-dns.com/dns-query
+    - tls://94.140.14.14
+    - tls://94.140.15.15
+    - tls://dns.adguard-dns.com
+    - quic://94.140.14.14
+    - quic://94.140.15.15
+    - quic://dns.adguard-dns.com
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
 
 sniffer:
   enable: true
@@ -223,7 +230,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     mtu: 1280
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -246,7 +253,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -270,7 +277,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -294,7 +301,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -319,7 +326,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -343,7 +350,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -367,7 +374,157 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: NAM-NL
+    type: wireguard
+    ip: 10.136.2.46/32
+    private-key: AEP+jhH5scMAOziG/mr1wwM43SKUxgPUM9q0tU3OK2U=
+    server: nl02awg.kcufwfgnkr.net
+    port: 60136
+    public-key: gbUPMNfaxgRSGD3xcnnbAJSclxfnOyh4U1qqmYMWmCI=
+    pre-shared-key: X2x3QHoIkpmviGM3zyX6mJvf6Oj905mqBSLp0hfRp/w=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: NAM-AE
+    type: wireguard
+    ip: 10.136.1.137/32
+    private-key: 4HRk7bt3WhdxZzKqiXNeT41xTZhAPYTVpji8sxweX0c=
+    server: ae01awg.kcufwfgnkr.net
+    port: 60136
+    public-key: 9mn11Gs4ouOhlLdkh1HKfV3zlAZGON9iv4L94dsPmi4=
+    pre-shared-key: cDxnBAIBEvXstPFAk8NFWOyRvAxHZVCDISyd/T2j4v0=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: NAM-ES
+    type: wireguard
+    ip: 10.136.1.165/32
+    private-key: iPC3ihkqcyBouWGfCP+9f1pYOsktfW1fUmtKoh/eC2M=
+    server: est01awg.kcufwfgnkr.net
+    port: 60136
+    public-key: Gd2PeVUqrz3FzpnbfLmvy1tY/Mv4drWVhsoAjflUBUw=
+    pre-shared-key: lnJvUBbTO4gDjRrClntTo+Re/1ONRgxfW8p2rw68ddE=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: NAM-UK
+    type: wireguard
+    ip: 10.221.0.78/32
+    private-key: KCjVjySbNGSviVYG0MwmleRz0QhXOqcwHbiHRjGxn0A=
+    server: gb01a.kcufwfgnkr.net
+    port: 62931
+    public-key: jJgnoLdV8w94rWI0gbXWhhcY8dFA3SuBdD0Fng3u/xo=
+    pre-shared-key: 6+oOnvoa2He0UE8j0Af3cRx/lJSdRSdyHLA1eKc9FCM=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: NAM-FR
+    type: wireguard
+    ip: 10.201.5.49/32
+    private-key: +EkO5G9s8wtavwusVRx693iUU44u/cA4KaiXFraTvVU=
+    server: fr01a.kcufwfgnkr.net
+    port: 62931
+    public-key: 6jIt22KMxyN3Hm62/8I4/M54gNsUJD4P8AqOWaGR7F4=
+    pre-shared-key: XdzRw2puotZqp4uUj3d/nh2zK9FNS80qFcfZR27g9WU=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: NAM-TR
+    type: wireguard
+    ip: 10.201.2.124/32
+    private-key: gCQsj/7vZrBCjLuKtNvCrwhEa0CqSXRWRHvoddNin38=
+    server: tr01a.kcufwfgnkr.net
+    port: 62931
+    public-key: 6T9PkVHfTvMfDtKANISJqnW1Ulmd5kYyh8IsVkQYemU=
+    pre-shared-key: ZMNacbDp5sZhDlKLX0iGhcn+7zRno1gMPmx1ZU3JeWU=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -382,6 +539,7 @@ proxy-groups:
     type: select
     proxies:
       - 🇦🇿-Baku
+      - NAM-UA
       - Proton-F
       - Baku-01
       - Baku-02
@@ -394,6 +552,12 @@ proxy-groups:
       - P-RO#30
       - P-US#69
       - P-US#73
+      - NAM-NL
+      - NAM-AE
+      - NAM-ES
+      - NAM-UK
+      - NAM-FR
+      - NAM-TR
       - DIRECT
 
 
@@ -425,6 +589,21 @@ proxy-groups:
       - P-RO#30
       - P-US#69
       - P-US#73
+
+  - name: NAM-UA
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    #timeout: 120000 
+    tolerance: 200
+    #max-failed-times: 6
+    proxies:
+      - NAM-NL
+      - NAM-AE
+      - NAM-ES
+      - NAM-UK
+      - NAM-FR
+      - NAM-TR
 
 proxy-providers:
 
