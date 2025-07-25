@@ -212,7 +212,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Proton-F
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
