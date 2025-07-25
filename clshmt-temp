@@ -95,30 +95,6 @@ ntp:
 
 proxies:
 
-  - name: IR-ENTRY-07
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2606:4700:110:8bcb:885e:2c53:fdc4:64a2/128
-    private-key: 2DnMM21eeR48YFMiLSd5mRXU+lJVPdfjz65jQT4bZUg=
-    server: 188.114.98.224
-    port: 942
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    allowed-ips:
-      - 0.0.0.0/0
-      - ::/0
-    reserved: 5pyz
-    udp: true
-    mtu: 1280
-    dialer-proxy: Baku-04
-    amnezia-wg-option:
-      jc: '4'
-      jmin: '40'
-      jmax: '70'
-      h1: '1'
-      h2: '2'
-      h3: '3'
-      h4: '4'
-
   - name: Baku-01
     type: wireguard
     ip: 172.16.0.2/32
@@ -135,7 +111,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Baku-02
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -160,7 +136,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Baku-03
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -186,7 +162,7 @@ proxies:
     reserved: uJZF
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Baku-04
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -212,7 +188,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    #dialer-proxy: Baku-03
+    dialer-proxy: Baku-01
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
