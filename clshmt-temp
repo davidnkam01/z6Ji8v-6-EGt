@@ -95,6 +95,29 @@ ntp:
 
 proxies:
 
+  - name: Entry
+    type: wireguard
+    ip: 172.16.0.2/32
+    ipv6: 2606:4700:110:8bcb:885e:2c53:fdc4:64a2/128
+    private-key: 2DnMM21eeR48YFMiLSd5mRXU+lJVPdfjz65jQT4bZUg=
+    server: 188.114.98.224
+    port: 942
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    reserved: 5pyz
+    udp: true
+    mtu: 1280
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
   - name: Baku-01
     type: wireguard
     ip: 172.16.0.2/32
@@ -111,7 +134,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: Baku-02
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -136,7 +159,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: Baku-03
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -162,7 +185,7 @@ proxies:
     reserved: uJZF
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: Baku-04
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -188,7 +211,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: Baku-01
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -212,7 +235,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     mtu: 1280
-    dialer-proxy: Baku-03
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -235,7 +258,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -259,7 +282,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -283,7 +306,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
@@ -308,7 +331,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -332,7 +355,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -356,7 +379,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -376,7 +399,6 @@ proxy-groups:
       - Baku-02
       - Baku-03
       - Baku-04
-      - IR-ENTRY-07
       - P-NL#217
       - P-NL#232
       - P-RO#22
@@ -392,7 +414,7 @@ proxy-groups:
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
     timeout: 120000 
-    tolerance: 500
+    tolerance: 20
     max-failed-times: 6
     proxies:
       - Baku-01
