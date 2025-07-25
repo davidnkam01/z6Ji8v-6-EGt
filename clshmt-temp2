@@ -111,7 +111,7 @@ proxies:
     mtu: 1280
     reserved: ZAnO
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     remote-dns-resolve: true
     dialer-proxy: Entry
     amnezia-wg-option:
@@ -138,7 +138,7 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     remote-dns-resolve: true
     dialer-proxy: Entry
     amnezia-wg-option:
@@ -166,7 +166,7 @@ proxies:
     mtu: 1280
     udp: true
     reserved: uJZF
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     remote-dns-resolve: true
     dialer-proxy: Entry
     amnezia-wg-option:
@@ -194,7 +194,7 @@ proxies:
     mtu: 1280
     udp: true
     reserved: mM3N
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     remote-dns-resolve: true
     dialer-proxy: Entry
     amnezia-wg-option:
@@ -219,7 +219,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     remote-dns-resolve: true
     mtu: 1280
     dialer-proxy: Entry
@@ -245,7 +245,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     dialer-proxy: Entry
     remote-dns-resolve: true
@@ -271,7 +271,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     dialer-proxy: Entry
     remote-dns-resolve: true
@@ -297,7 +297,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     dialer-proxy: Entry
     remote-dns-resolve: true
@@ -323,7 +323,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -349,7 +349,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -375,7 +375,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -402,7 +402,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -429,7 +429,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -456,7 +456,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -483,7 +483,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -510,7 +510,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
@@ -537,7 +537,7 @@ proxies:
       - 0.0.0.0/0
       - ::/0
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1 ]
+    dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
     remote-dns-resolve: true
     dialer-proxy: Entry
