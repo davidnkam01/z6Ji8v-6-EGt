@@ -399,7 +399,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    #dialer-proxy: Entry
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -424,7 +424,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    #dialer-proxy: Entry
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -449,7 +449,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    #dialer-proxy: Entry
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -474,7 +474,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    #dialer-proxy: Entry
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -499,7 +499,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    #dialer-proxy: Entry
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -524,7 +524,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
     remote-dns-resolve: true
-    #dialer-proxy: Entry
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
