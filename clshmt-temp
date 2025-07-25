@@ -211,7 +211,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: P-NL#217
+    dialer-proxy: IR-ENTRY-07
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -235,6 +235,7 @@ proxies:
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
     mtu: 1280
+    dialer-proxy: Baku-03
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -257,6 +258,7 @@ proxies:
     udp: true
     dns: [ 1.1.1.1, 1.0.0.1 ]
     mtu: 1280
+    dialer-proxy: IR-ENTRY-07
     remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
