@@ -414,7 +414,7 @@ proxy-groups:
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
     timeout: 120000 
-    tolerance: 20
+    tolerance: 200
     max-failed-times: 6
     proxies:
       - Baku-01
@@ -427,7 +427,7 @@ proxy-groups:
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
     #timeout: 120000 
-    tolerance: 20
+    tolerance: 200
     #max-failed-times: 6
     proxies:
       - P-NL#217
