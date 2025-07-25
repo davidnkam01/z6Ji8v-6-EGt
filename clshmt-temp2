@@ -112,8 +112,8 @@ proxies:
     reserved: ZAnO
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -139,8 +139,8 @@ proxies:
     mtu: 1280
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -167,8 +167,8 @@ proxies:
     udp: true
     reserved: uJZF
     dns: ["10.255.255.2", "8.8.8.8"]
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -195,8 +195,8 @@ proxies:
     udp: true
     reserved: mM3N
     dns: ["10.255.255.2", "8.8.8.8"]
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -220,9 +220,9 @@ proxies:
       - ::/0
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
-    remote-dns-resolve: true
+    #remote-dns-resolve: true
     mtu: 1280
-    dialer-proxy: Entry
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -247,8 +247,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    dialer-proxy: Entry
-    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    #remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -273,8 +273,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    dialer-proxy: Entry
-    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    #remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -299,8 +299,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    dialer-proxy: Entry
-    remote-dns-resolve: true
+    #dialer-proxy: Entry
+    #remote-dns-resolve: true
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -325,8 +325,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -351,8 +351,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -377,8 +377,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -404,8 +404,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -431,8 +431,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -458,8 +458,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -485,8 +485,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -512,8 +512,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -539,8 +539,8 @@ proxies:
     udp: true
     dns: ["10.255.255.2", "8.8.8.8"]
     mtu: 1280
-    remote-dns-resolve: true
-    dialer-proxy: Entry
+    #remote-dns-resolve: true
+    #dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
