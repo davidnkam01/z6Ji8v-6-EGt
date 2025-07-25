@@ -382,7 +382,6 @@ proxy-groups:
     type: select
     proxies:
       - 🇦🇿-Baku
-      - NAM-UA
       - Proton-F
       - Baku-01
       - Baku-02
