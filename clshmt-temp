@@ -30,39 +30,46 @@ tun:
 dns:
   enable: true
   ipv6: true
-  prefer-h3: true
-  use-system-hosts: true
-  use-hosts: true
   respect-rules: true
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  fake-ip-filter-mode: blacklist
-
-  default-nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-
+  listen: 0.0.0.0:1053
+  use-system-hosts: false
   nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-
-  proxy-server-nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-
-  direct-nameserver:
-    - 8.8.8.8
-    - 8.8.4.4
-
-  fallback:
-    - 94.140.14.15 
+    - 94.140.14.14
     - 94.140.15.15
+    - https://dns.adguard-dns.com/dns-query
+    - tls://94.140.14.14
+    - tls://94.140.15.15
+    - tls://dns.adguard-dns.com
+    - quic://94.140.14.14
+    - quic://94.140.15.15
+    - quic://dns.adguard-dns.com
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  proxy-server-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  default-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+  direct-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
+  fallback:
+    - 94.140.14.14
+    - 94.140.15.15
+    - https://dns.adguard-dns.com/dns-query
+    - tls://94.140.14.14
+    - tls://94.140.15.15
+    - tls://dns.adguard-dns.com
+    - quic://94.140.14.14
+    - quic://94.140.15.15
+    - quic://dns.adguard-dns.com
+    - 2a10:50c0::ad1:ff 
+    - 2a10:50c0::ad2:ff
 
 sniffer:
   enable: true
