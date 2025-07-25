@@ -34,45 +34,27 @@ dns:
   use-system-hosts: true
   use-hosts: true
   respect-rules: true
-  listen: 0.0.0.0:1053
-  #enhanced-mode: fake-ip
-  #fake-ip-filter-mode: blacklist
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-filter-mode: blacklist
 
   default-nameserver:
     - 8.8.8.8
     - 8.8.4.4
     - 1.1.1.1
     - 1.0.0.1
-    - 9.9.9.9 
-    - 9.9.9.11 
-    - 9.9.9.10 
-    - 94.140.14.15 
-    - 94.140.15.15 
-    - 223.5.5.5 
-    - 77.88.8.8
 
   nameserver:
     - 8.8.8.8
     - 8.8.4.4
     - 1.1.1.1
     - 1.0.0.1
-    - https://8.8.8.8/dns-query
-    - https://1.1.1.1/dns-query
 
   proxy-server-nameserver:
     - 8.8.8.8
     - 8.8.4.4
     - 1.1.1.1
     - 1.0.0.1
-    - https://8.8.8.8/dns-query
-    - https://1.1.1.1/dns-query
-    - 9.9.9.9 
-    - 9.9.9.11 
-    - 9.9.9.10 
-    - 94.140.14.15 
-    - 94.140.15.15 
-    - 223.5.5.5 
-    - 77.88.8.8
 
   direct-nameserver:
     - 8.8.8.8
@@ -81,11 +63,6 @@ dns:
   fallback:
     - 94.140.14.15 
     - 94.140.15.15
-    - 223.5.5.5 
-    - 77.88.8.8 
-    - 9.9.9.9
-    - 9.9.9.10
-    - 9.9.9.11
 
 sniffer:
   enable: true
