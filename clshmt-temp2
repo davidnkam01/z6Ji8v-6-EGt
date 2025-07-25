@@ -9,6 +9,9 @@ keep-alive-idle: 10
 unified-delay: true
 global-client-fingerprint: chrome
 
+geo-auto-update: false
+geo-update-interval: 168
+
 profile:
   store-selected: true
   store-fake-ip: true
@@ -19,7 +22,6 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-    - udp://any:53
   stack: mixed
   auto-route: true
   strict-route: true
@@ -31,31 +33,36 @@ dns:
   prefer-h3: true
   use-system-hosts: true
   use-hosts: true
-  listen: 0.0.0.0:1053
+  respect-rules: true
+  listen: 0.0.0.0:53
   enhanced-mode: fake-ip
   fake-ip-filter-mode: blacklist
-
 
   default-nameserver:
     - 8.8.8.8
     - 8.8.4.4
     - 1.1.1.1
     - 1.0.0.1
-    - system
 
   nameserver:
     - 8.8.8.8
     - 8.8.4.4
     - 1.1.1.1
     - 1.0.0.1
-    - tls://8.8.8.8
-    - tls://8.8.4.4
-    - tls://1.1.1.1
-    - tls://1.0.0.1
-    - https://mozilla.cloudflare-dns.com/dns-query#DNS&h3=true
-    - https://dns.alidns.com/dns-query#h3=true
-    - quic://dns.adguard.com:784
-    - system
+
+  proxy-server-nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+  direct-nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
+
+  fallback:
+    - 94.140.14.15 
+    - 94.140.15.15
 
 sniffer:
   enable: true
@@ -76,7 +83,7 @@ ntp:
 
 proxies:
 
-  - name: IR-ENTRY-07
+  - name: Entry
     type: wireguard
     ip: 172.16.0.2/32
     ipv6: 2606:4700:110:8bcb:885e:2c53:fdc4:64a2/128
@@ -97,6 +104,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
 
   - name: Baku-01
     type: wireguard
@@ -112,9 +120,9 @@ proxies:
     mtu: 1280
     reserved: ZAnO
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -122,6 +130,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
   
   - name: Baku-02
     type: wireguard
@@ -136,9 +145,9 @@ proxies:
       - ::/0
     mtu: 1280
     udp: true
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -146,6 +155,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
 
   - name: Baku-03
     type: wireguard
@@ -161,9 +171,9 @@ proxies:
     mtu: 1280
     udp: true
     reserved: uJZF
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -171,6 +181,7 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
+      h4: '4'
 
   - name: Baku-04
     type: wireguard
@@ -186,9 +197,9 @@ proxies:
     mtu: 1280
     udp: true
     reserved: mM3N
-    dns: [ 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 2606:4700:4700::1111, 2606:4700:4700::1001 ]
+    dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: IR-ENTRY-07
+    dialer-proxy: Entry
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
@@ -196,144 +207,234 @@ proxies:
       h1: '1'
       h2: '2'
       h3: '3'
-      
+      h4: '4'
+
+  - name: P-NL#217
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: qGWfp/qU5q8XcL73MAXVv/rFjtwDHOOMe7fHHrpwOkA=
+    server: 185.165.240.23
+    port: 51820
+    public-key: QGD/PKdxVXt9h0+gN7x8zB70sexJfv+0hhiJQou1BVc=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    remote-dns-resolve: true
+    mtu: 1280
+    dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-NL#232
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: EMeftUVqE9/HZvHhC6SZbmQyHRUfaCSwHBDq4LH+ckg=
+    server: 185.177.125.13
+    port: 51820
+    public-key: jJilN4ZNv7G6Cs64Rv422Ar05/qWNw0l4cXQ8n/O5Vg=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    dialer-proxy: Entry
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-RO#22
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: 2L8pFEUvqEd0WkBTeLCBF1xTv0ADyVu79OYsyy1xH3U=
+    server: 185.252.220.114
+    port: 51820
+    public-key: h3CoyfmMyHSqCJBikhQQXAURkx73PXKIQ0hw48HqhGY=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    dialer-proxy: Entry
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-RO#29
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: +LWQmMThY6zzxnqpys4n/ZSPSAC3ItRG0x3PTnv5Ilk=
+    server: 146.70.246.146
+    port: 51820
+    public-key: Hn/oz255qtOjckrUeoA3Gi/UbX/sLSCZPfKXH4lXhjc=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    dialer-proxy: Entry
+    remote-dns-resolve: true
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-RO#30
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: oADdQKbz4TFdEGTc/5rxQ4VNjRmZ3+wXiLKGEPAtAGI=
+    server: 146.70.246.162
+    port: 51820
+    public-key: T8d25TmPZAJis61XdH5TB7o3/qJX9kTQnFMkCl1EjTE=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-US#69
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: 2Bqs6mHQA/uKEe08zkb3lRJZHl9lOrqDYh5/H5mzzXg=
+    server: 149.102.226.238
+    port: 51820
+    public-key: ljr0KidoBwgj8ZRs4DOCl7GbXMOwGeqJeYUHV9bt20o=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+
+  - name: P-US#73
+    type: wireguard
+    ip: 10.2.0.2/32
+    private-key: CAl3UGrLPRg5/c1/SmQEX6z+MKnCJ0fz+0cZ+vTj7k8=
+    server: 149.102.226.239
+    port: 51820
+    public-key: c+9CyG97uDKPSgCtd/sjvFoXTnswiHsj3kd2CpdXIUc=
+    allowed-ips:
+      - 0.0.0.0/0
+      - ::/0
+    udp: true
+    dns: [ 1.1.1.1, 1.0.0.1 ]
+    mtu: 1280
+    remote-dns-resolve: true
+    dialer-proxy: Entry
+    amnezia-wg-option:
+      jc: '4'
+      jmin: '40'
+      jmax: '70'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
+    
 proxy-groups:
   - name: Selector
     type: select
     proxies:
       - 🇦🇿-Baku
-      - agg
-      - f2c
+      - NAM-UA
+      - Proton-F
+      - Baku-01
+      - Baku-02
+      - Baku-03
+      - Baku-04
+      - P-NL#217
+      - P-NL#232
+      - P-RO#22
+      - P-RO#29
+      - P-RO#30
+      - P-US#69
+      - P-US#73
       - DIRECT
 
-  - name: agg
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30 
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 01agg
-
-  - name: f2c
-    type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
-    interval: 600 
-    timeout: 120000 
-    tolerance: 30
-    max-failed-times: 6
-    hidden: true
-    use:
-      - 02f2c1
-      - 02f2c2
 
   - name: 🇦🇿-Baku
     type: url-test
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
     timeout: 120000 
-    tolerance: 500
+    tolerance: 200
     max-failed-times: 6
-    hidden: true
     proxies:
       - Baku-01
       - Baku-02
       - Baku-03
       - Baku-04
 
+  - name: Proton-F
+    type: url-test
+    url: https://api.v2fly.org/checkConnection.svgz 
+    interval: 600 
+    #timeout: 120000 
+    tolerance: 200
+    #max-failed-times: 6
+    proxies:
+      - P-NL#217
+      - P-NL#232
+      - P-RO#22
+      - P-RO#29
+      - P-RO#30
+      - P-US#69
+      - P-US#73
+
 proxy-providers:
 
-  01agg:
-    type: http
-    url: "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
-    path: ./provide/01agg.yaml
-    interval: 3600
-    proxy: DIRECT
-
-  02f2c1:
-    type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
-    path: ./provide/02f2c1.yaml
-    interval: 3600
-    proxy: DIRECT
-
-  02f2c2:
-    type: http
-    url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T%2CH"
-    path: ./provide/02f2c2.yaml
-    interval: 3600
-    proxy: DIRECT
-  
-rule-providers:
-  #####DIRECT-rules#####
-  ircidr:
-    type: http
-    behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.mrs"
-    path: ./ruleset/ircidr.mrs
-    proxy: DIRECT
-    interval: 86400
-
-  ir-lite:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir-lite.mrs"
-    path: ./ruleset/ir-lite.mrs
-    proxy: DIRECT
-    interval: 86400
-
-  private:
-    type: http
-    behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/private.mrs"
-    path: ./ruleset/private.mrs
-    proxy: DIRECT
-    interval: 86400
-
-  irasn:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/irasn.mrs"
-    path: ./ruleset/irasn.mrs
-    proxy: DIRECT
-    interval: 86400
-  
-
-
-  ####Reject-Rules####
-  category-ads-all:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/category-ads-all.mrs"
-    path: ./ruleset/category-ads-all.mrs
-    proxy: DIRECT
-    interval: 86400
-
-  malware:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.mrs"
-    path: ./ruleset/malware.mrs
-    proxy: DIRECT
-    interval: 86400
-
-  phishing:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.mrs"
-    path: ./ruleset/phishing.mrs
-    proxy: DIRECT
-    interval: 86400
-
-  cryptominers:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.mrs"
-    path: ./ruleset/cryptominers.mrs
-    proxy: DIRECT
-    interval: 86400
+  #02f2c1:
+    #type: http
+    #url: "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality"
+    #path: ./provide/02f2c1.yaml
+    #interval: 3600
+    #proxy: DIRECT
 
 rules:
   #####direct-rules#####
@@ -347,30 +448,24 @@ rules:
   - DOMAIN,cube.shiina-rimo.cafe,DIRECT
   - DOMAIN,zephyruso.github.io/zashboard/,DIRECT
 
-  - RULE-SET,ir-lite,DIRECT
-  - RULE-SET,ircidr,DIRECT
-  - RULE-SET,irasn,DIRECT
-  - GEOIP,lan,DIRECT,no-resolve
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOSITE,category-ir,DIRECT
+  - GEOSITE,category-gov-ir,DIRECT
+  - GEOSITE,category-bank-ir,DIRECT
+  - GEOSITE,category-news-ir,DIRECT
+  - GEOSITE,category-tech-ir,DIRECT
+  - GEOSITE,category-media-ir,DIRECT
+  - GEOSITE,category-bourse-ir,DIRECT
+  - GEOSITE,category-forums-ir,DIRECT
+  - GEOSITE,category-travel-ir,DIRECT
+  - GEOSITE,category-payment-ir,DIRECT
+  - GEOSITE,category-scholar-ir,DIRECT
+  - GEOSITE,category-shopping-ir,DIRECT
+  - GEOSITE,category-insurance-ir,DIRECT
+  - GEOSITE,category-education-ir,DIRECT
+  - GEOIP,ir,DIRECT
 
-  ##- RULE-SET,openai,DIRECT
-  ##- DOMAIN,chatgpt.com,DIRECT
-  ##- DOMAIN-SUFFIX,chatgpt.com,DIRECT
-  ##- DOMAIN-KEYWORD,chatgpt,DIRECT
-
-  ####Reject-Rules####
-  - RULE-SET,category-ads-all,REJECT
-  - RULE-SET,malware,REJECT
-  - RULE-SET,phishing,REJECT
-  - RULE-SET,cryptominers,REJECT
+  - GEOSITE,category-ads-all,REJECT
+  - GEOSITE,category-ads-ir,REJECT
 
   - MATCH,Selector
-
-
-geox-url:
-  geoip: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat"
-  geosite: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geosite.dat"
-  mmdb: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/geoip.metadb"
-  asn: "https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/geolite2/GeoLite2-ASN.mmdb"
-
-geo-auto-update: false
-geo-update-interval: 168
