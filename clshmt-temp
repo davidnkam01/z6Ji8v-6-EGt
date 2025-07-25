@@ -37,6 +37,17 @@ dns:
   listen: 0.0.0.0:1053
   enhanced-mode: fake-ip
   fake-ip-filter-mode: blacklist
+  fake-ip-filter: 
+    - '*.lan'              
+    - '*.localdomain'      
+    - '*.invalid'          
+    - '*.localhost'        
+    - '*.test'             
+    - '*.local'            
+    - '*.home.arpa' 
+    - 'time.*.com' 
+    - 'ntp.*.com' 
+    - '*.ir' 
 
 
   default-nameserver:
