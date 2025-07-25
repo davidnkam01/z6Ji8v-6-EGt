@@ -401,15 +401,13 @@ proxies:
     remote-dns-resolve: true
     #dialer-proxy: Entry
     amnezia-wg-option:
-      jc: '43'
-      jmin: '50'
+      jc: '4'
+      jmin: '40'
       jmax: '70'
-      s1: '110'
-      s2: '120'
-      h1: '1593635057'
-      h2: '430880481'
-      h3: '1214405368'
-      h4: '1739253821'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
 
   - name: NAM-AE
     type: wireguard
@@ -428,15 +426,13 @@ proxies:
     remote-dns-resolve: true
     #dialer-proxy: Entry
     amnezia-wg-option:
-      jc: '43'
-      jmin: '50'
+      jc: '4'
+      jmin: '40'
       jmax: '70'
-      s1: '110'
-      s2: '120'
-      h1: '1593635057'
-      h2: '430880481'
-      h3: '1214405368'
-      h4: '1739253821'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
 
   - name: NAM-ES
     type: wireguard
@@ -455,15 +451,13 @@ proxies:
     remote-dns-resolve: true
     #dialer-proxy: Entry
     amnezia-wg-option:
-      jc: '43'
-      jmin: '50'
+      jc: '4'
+      jmin: '40'
       jmax: '70'
-      s1: '110'
-      s2: '120'
-      h1: '1593635057'
-      h2: '430880481'
-      h3: '1214405368'
-      h4: '1739253821'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
 
   - name: NAM-UK
     type: wireguard
@@ -482,15 +476,13 @@ proxies:
     remote-dns-resolve: true
     #dialer-proxy: Entry
     amnezia-wg-option:
-      jc: '43'
-      jmin: '50'
+      jc: '4'
+      jmin: '40'
       jmax: '70'
-      s1: '110'
-      s2: '120'
-      h1: '1593635057'
-      h2: '430880481'
-      h3: '1214405368'
-      h4: '1739253821'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
 
   - name: NAM-FR
     type: wireguard
@@ -509,15 +501,13 @@ proxies:
     remote-dns-resolve: true
     #dialer-proxy: Entry
     amnezia-wg-option:
-      jc: '43'
-      jmin: '50'
+      jc: '4'
+      jmin: '40'
       jmax: '70'
-      s1: '110'
-      s2: '120'
-      h1: '1593635057'
-      h2: '430880481'
-      h3: '1214405368'
-      h4: '1739253821'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
 
   - name: NAM-TR
     type: wireguard
@@ -536,15 +526,13 @@ proxies:
     remote-dns-resolve: true
     #dialer-proxy: Entry
     amnezia-wg-option:
-      jc: '43'
-      jmin: '50'
+      jc: '4'
+      jmin: '40'
       jmax: '70'
-      s1: '110'
-      s2: '120'
-      h1: '1593635057'
-      h2: '430880481'
-      h3: '1214405368'
-      h4: '1739253821'
+      h1: '1'
+      h2: '2'
+      h3: '3'
+      h4: '4'
     
 proxy-groups:
   - name: Selector
