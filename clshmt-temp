@@ -428,9 +428,9 @@ proxy-groups:
     type: url-test
     url: https://api.v2fly.org/checkConnection.svgz 
     interval: 600 
-    timeout: 120000 
-    tolerance: 500
-    max-failed-times: 6
+    #timeout: 120000 
+    tolerance: 20
+    #max-failed-times: 6
     proxies:
       - P-NL#217
       - P-NL#232
