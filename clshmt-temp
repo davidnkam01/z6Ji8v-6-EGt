@@ -22,7 +22,6 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-    - udp://any:53
   stack: mixed
   auto-route: true
   strict-route: true
@@ -212,7 +211,7 @@ proxies:
     reserved: mM3N
     dns: [ 1.1.1.1, 1.0.0.1 ]
     remote-dns-resolve: true
-    dialer-proxy: Proton-F
+    dialer-proxy: P-NL#217
     amnezia-wg-option:
       jc: '4'
       jmin: '40'
