@@ -90,6 +90,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -116,6 +118,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -141,6 +145,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -167,6 +173,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -193,6 +201,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -217,6 +227,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -241,6 +253,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -265,6 +279,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -289,6 +305,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -313,6 +331,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -337,6 +357,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -361,6 +383,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -386,6 +410,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -411,6 +437,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -436,6 +464,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -461,6 +491,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -486,6 +518,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -511,6 +545,8 @@ proxies:
       jc: '4'
       jmin: '40'
       jmax: '70'
+      s1: 0
+      s2: 0
       h1: '1'
       h2: '2'
       h3: '3'
@@ -545,7 +581,7 @@ proxy-groups:
 
   - name: 🇦🇿-Baku
     type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
+    url: http://www.gstatic.com/generate_204
     interval: 600 
     #timeout: 120000 
     tolerance: 100
@@ -558,7 +594,7 @@ proxy-groups:
 
   - name: Proton-F
     type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
+    url: http://www.gstatic.com/generate_204
     interval: 600 
     #timeout: 120000 
     tolerance: 100
@@ -574,7 +610,7 @@ proxy-groups:
 
   - name: NAM-UA
     type: url-test
-    url: https://api.v2fly.org/checkConnection.svgz 
+    url: http://www.gstatic.com/generate_204
     interval: 600 
     #timeout: 120000 
     tolerance: 100
