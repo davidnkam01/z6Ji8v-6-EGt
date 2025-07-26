@@ -1933,6 +1933,12 @@ proxy-groups:
       - "🇻🇳 Vietnam"
       - "🇿🇦 South Africa 1"
       - "🇿🇦 South Africa"
+      - NAM-NL
+      - NAM-AE
+      - NAM-ES
+      - NAM-UK
+      - NAM-FR
+      - NAM-TR
 
   - name: "🚀 انتخاب خودکار (بهترین)"
     type: url-test
@@ -2004,7 +2010,13 @@ proxy-groups:
       - "🇻🇳 Vietnam"
       - "🇿🇦 South Africa 1"
       - "🇿🇦 South Africa"
-      
+      - NAM-NL
+      - NAM-AE
+      - NAM-ES
+      - NAM-UK
+      - NAM-FR
+      - NAM-TR
+
 rule-providers:
   ir:
     type: http
