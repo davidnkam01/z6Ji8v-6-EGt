@@ -18,7 +18,7 @@ profile:
 
 tun:
   enable: true
-  mtu: 9000
+  mtu: 1280
   dns-hijack:
     - any:53
     - tcp://any:53
@@ -557,10 +557,11 @@ proxies:
 proxy-groups:
   - name: Selector
     type: select
+    #interval: 600 
+    timeout: 500
+    #tolerance: 200
+    #max-failed-times: 6
     proxies:
-      - 🇦🇿-Baku
-      - NAM-UA
-      - Proton-F
       - Baku-01
       - Baku-02
       - Baku-03
@@ -579,51 +580,6 @@ proxy-groups:
       - NAM-FR
       - NAM-TR
       - DIRECT
-
-
-  - name: 🇦🇿-Baku
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600 
-    #timeout: 120000 
-    tolerance: 100
-    #max-failed-times: 6
-    proxies:
-      - Baku-01
-      - Baku-02
-      - Baku-03
-      - Baku-04
-
-  - name: Proton-F
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600 
-    #timeout: 120000 
-    tolerance: 100
-    #max-failed-times: 6
-    proxies:
-      - P-NL#217
-      - P-NL#232
-      - P-RO#22
-      - P-RO#29
-      - P-RO#30
-      - P-US#69
-      - P-US#73
-
-  - name: NAM-UA
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600 
-    #timeout: 120000 
-    tolerance: 100
-    #max-failed-times: 6
-    proxies:
-      - NAM-NL
-      - NAM-AE
-      - NAM-ES
-      - NAM-UK
-      - NAM-FR
-      - NAM-TR
 
 proxy-providers:
 
